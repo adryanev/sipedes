@@ -17,7 +17,16 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "fedemotta/yii2-widget-datatables": "*",
+        "yii2mod/yii2-sweet-alert": "*",
+        "2amigos/yii2-tinymce-widget": "~1.1",
+        "sjaakp/yii2-taggable": "*",
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "la-haute-societe/yii2-save-relations-behavior": "*",
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "conquer/momentjs": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

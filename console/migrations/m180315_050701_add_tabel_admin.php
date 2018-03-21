@@ -2,17 +2,27 @@
 
 use yii\db\Migration;
 
-class m130524_201442_init extends Migration
+/**
+ * Class m180315_050701_add_tabel_admin
+ */
+class m180315_050701_add_tabel_admin extends Migration
 {
-    public function up()
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp()
     {
+
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
             // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%user}}', [
+        /*
+         * Create table admin
+         */
+        $this->createTable('{{%admin}}', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull()->unique(),
             'auth_key' => $this->string(32)->notNull(),
@@ -22,13 +32,37 @@ class m130524_201442_init extends Migration
 
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'nama'=>$this->string(),
+            'nip'=>$this->string(),
+            'jabatan'=>$this->string(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
+
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        echo "m180315_050701_add_tabel_admin cannot be reverted.\n";
+
+        return false;
+    }
+
+    /*
+    // Use up()/down() to run migration code without a transaction.
+    public function up()
+    {
+
     }
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
+        echo "m180315_050701_add_tabel_admin cannot be reverted.\n";
+
+        return false;
     }
+    */
 }
