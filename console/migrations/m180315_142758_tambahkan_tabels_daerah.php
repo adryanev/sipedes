@@ -54,6 +54,55 @@ class m180315_142758_tambahkan_tabels_daerah extends Migration
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime()
         ],$tableOptions);
+
+
+        /*
+         * ================================================== INDEX ==============================================
+         */
+
+        $this->createIndex('idx-nama-provinsi','{{%provinsi}}','nama_provinsi');
+        $this->createIndex('idx-nama-kabupaten','{{%kabupaten}}','nama_kabupaten');
+        $this->createIndex('idx-nama-kecamatan','{{%kecamatan}}','nama_kecamatan');
+        $this->createIndex('idx-nama-desa','{{%desa}}','nama_desa');
+        $this->createIndex('idx-nama-kelurahan','{{%kelurahan}}','nama_kelurahan');
+
+
+
+
+        /*
+         * =================================================== FOREIGN KEY ============================================
+         */
+
+        $this->addForeignKey('fk_provinsi_kabupaten',
+            'kabupaten',
+            'id_provinsi',
+            'provinsi',
+            'id_provinsi',
+            'CASCADE',
+            'CASCADE');
+        $this->addForeignKey('fk_kabupaten_kecamatan',
+            'kecamatan',
+            'id_kabupaten',
+            'kabupaten',
+            'id_kabupaten',
+            'CASCADE',
+            'CASCADE');
+        $this->addForeignKey('fk_kecamatan_desa',
+            'desa',
+            'id_kecamatan',
+            'kecamatan',
+            'id_kecamatan',
+            'CASCADE',
+            'CASCADE');
+        $this->addForeignKey('fk_kecamatan_kelurahan',
+            'kelurahan',
+            'id_kecamatan',
+            'kecamatan',
+            'id_kecamatan',
+            'CASCADE',
+            'CASCADE');
+
+
     }
 
     /**

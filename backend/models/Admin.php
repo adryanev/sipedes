@@ -1,44 +1,61 @@
 <?php
-namespace common\models;
+
+namespace backend\models;
 
 use Yii;
-use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
- * User model
+ * This is the model class for table "admin".
  *
- * @property integer $id
+ * @property int $id
  * @property string $username
+ * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
- * @property string $auth_key
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $password write-only password
+ * @property int $status
+ * @property string $nama
+ * @property string $nip
+ * @property string $avatar
+ * @property string $jabatan
+ * @property string $created_at
+ * @property string $updated_at
  */
-class User extends ActiveRecord implements IdentityInterface
+class Admin extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
-
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return 'admin';
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
+    public function rules()
+    {
+        return [
+            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['status'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
+            [['username', 'password_hash', 'password_reset_token', 'email', 'nama', 'nip', 'avatar', 'jabatan'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
+            [['password_reset_token'], 'unique'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+        ];
+    }
     public function behaviors()
     {
         return [
@@ -57,16 +74,26 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
-    public function rules()
+    public function attributeLabels()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            'id' => 'ID',
+            'username' => 'Username',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password Hash',
+            'password_reset_token' => 'Password Reset Token',
+            'email' => 'Email',
+            'status' => 'Status',
+            'nama' => 'Nama',
+            'nip' => 'Nip',
+            'avatar' => 'Avatar',
+            'jabatan' => 'Jabatan',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
-
     /**
      * {@inheritdoc}
      */

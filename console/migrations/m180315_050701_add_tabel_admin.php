@@ -29,15 +29,17 @@ class m180315_050701_add_tabel_admin extends Migration
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string()->unique(),
             'email' => $this->string()->notNull()->unique(),
-
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'nama'=>$this->string(),
             'nip'=>$this->string(),
+            'avatar'=>$this->string(),
             'jabatan'=>$this->string(),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()->notNull(),
         ], $tableOptions);
 
+        $this->execute('INSERT INTO `admin` (`id`, `username`, `email`, `nama`, `password_hash`, `password_reset_token`, `auth_key`, `avatar`, `status`, `created_at`, `updated_at`,`nip`,`jabatan`) VALUES
+(1, \'root\', \'root@sipedes.com\', \'Super Admin\', \'$2y$13$tyy5A3UZe0ipSoaWDrbpXOfBE8bph0sawnVHrGu6RFfgD7Nihq9he\', NULL, \'Pwys0TRico7Ha4YSyX2fmjABrFskscxh\', \'profile.jpg\',  10, \'2018-02-08 09:48:14\', \'2018-02-08 09:48:14\',\'1405103544341\',\'Super Admin\');');
 
     }
 
