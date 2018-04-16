@@ -51,6 +51,18 @@ return [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ],
+        'assetManager' => [
+	        'bundles' => [
+		        'yii\web\JqueryAsset' => [
+			        'sourcePath' => null,
+			        'basePath' => '@webroot',
+			        'baseUrl' => '@web',
+			        'js' => [
+				        'js/jquery-3.2.1.min.js',
+			        ]
+		        ],
+	        ],
+        ],
     ],
     'params' => $params,
 ];
