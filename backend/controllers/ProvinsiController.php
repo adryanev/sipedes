@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\Provinsi;
 use common\models\ProvinsiSearch;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\web\Controller;
@@ -22,6 +23,16 @@ class ProvinsiController extends Controller
     public function behaviors()
     {
         return [
+	        'access' => [
+		        'class' => AccessControl::className(),
+		        'rules' => [
+			       			        [
+				        'actions' => ['create','view','index','delete'],
+				        'allow' => true,
+				        'roles' => ['@'],
+			        ],
+		        ],
+	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

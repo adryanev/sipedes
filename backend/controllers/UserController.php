@@ -2,20 +2,17 @@
 
 namespace backend\controllers;
 
-use common\models\Kabupaten;
 use Yii;
-use common\models\Kecamatan;
-use common\models\KecamatanSearch;
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
+use common\models\User;
+use common\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * KecamatanController implements the CRUD actions for Kecamatan model.
+ * UserController implements the CRUD actions for User model.
  */
-class KecamatanController extends Controller
+class UserController extends Controller
 {
     /**
      * @inheritdoc
@@ -23,16 +20,6 @@ class KecamatanController extends Controller
     public function behaviors()
     {
         return [
-	        'access' => [
-		        'class' => AccessControl::className(),
-		        'rules' => [
-			        [
-				        'actions' => ['create','view','index','delete'],
-				        'allow' => true,
-				        'roles' => ['@'],
-			        ],
-		        ],
-	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -43,12 +30,12 @@ class KecamatanController extends Controller
     }
 
     /**
-     * Lists all Kecamatan models.
+     * Lists all User models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new KecamatanSearch();
+        $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -58,7 +45,7 @@ class KecamatanController extends Controller
     }
 
     /**
-     * Displays a single Kecamatan model.
+     * Displays a single User model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -71,27 +58,25 @@ class KecamatanController extends Controller
     }
 
     /**
-     * Creates a new Kecamatan model.
+     * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Kecamatan();
-        $dataKabupaten = Kabupaten::getAllKabupatenAsKeyValue();
+        $model = new User();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil menambahkan kecamatan');
-            return $this->redirect(['view', 'id' => $model->id_kecamatan]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
-	        'dataKabupaten'=>$dataKabupaten,
         ]);
     }
 
     /**
-     * Updates an existing Kecamatan model.
+     * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -100,20 +85,18 @@ class KecamatanController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $dataKabupaten = Kabupaten::getAllKabupatenAsKeyValue();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_kecamatan]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'dataKabupaten'=>$dataKabupaten,
         ]);
     }
 
     /**
-     * Deletes an existing Kecamatan model.
+     * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,24 +105,23 @@ class KecamatanController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-		Yii::$app->session->setFlash('success','Berhasil menghapus kecamatan');
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Kecamatan model based on its primary key value.
+     * Finds the User model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Kecamatan the loaded model
+     * @return User the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Kecamatan::findOne($id)) !== null) {
+        if (($model = User::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
 }

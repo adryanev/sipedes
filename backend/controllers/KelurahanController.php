@@ -6,6 +6,7 @@ use common\models\Kecamatan;
 use Yii;
 use common\models\Kelurahan;
 use common\models\KelurahanSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,16 @@ class KelurahanController extends Controller
     public function behaviors()
     {
         return [
+	        'access' => [
+		        'class' => AccessControl::className(),
+		        'rules' => [
+			        [
+				        'actions' => ['create','view','index','delete'],
+				        'allow' => true,
+				        'roles' => ['@'],
+			        ],
+		        ],
+	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

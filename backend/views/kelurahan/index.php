@@ -36,9 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                             'id_kelurahan',
             'nama_kelurahan',
-            'id_kecamatan',
-            'created_at',
-            'updated_at',
+//            'id_kecamatan',
+//            'created_at',
+//            'updated_at',
 
                                 ['class' => 'yii\grid\ActionColumn','header'=>'Aksi'],
                                 ],
