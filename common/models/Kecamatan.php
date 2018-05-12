@@ -3,17 +3,14 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "kecamatan".
  *
- * @property int $id_kecamatan
+ * @property string $id_kecamatan
  * @property string $nama_kecamatan
- * @property int $id_kabupaten
- * @property string $created_at
- * @property string $updated_at
+ * @property string $id_kabupaten
  *
  * @property Desa[] $desas
  * @property Kabupaten $kabupaten
@@ -29,25 +26,16 @@ class Kecamatan extends \yii\db\ActiveRecord
         return 'kecamatan';
     }
 
-	public function behaviors() {
-		return [
-			'timestamp' => [
-				'class' => TimestampBehavior::className(),
-				'createdAtAttribute' => 'created_at',
-				'updatedAtAttribute' => 'updated_at',
-				'value' => new \yii\db\Expression('NOW()'),
-			],
-		];
-	}
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_kabupaten'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['id_kecamatan'], 'required'],
+            [['id_kecamatan', 'id_kabupaten'], 'string', 'max' => 15],
             [['nama_kecamatan'], 'string', 'max' => 255],
+            [['id_kecamatan'], 'unique'],
             [['id_kabupaten'], 'exist', 'skipOnError' => true, 'targetClass' => Kabupaten::className(), 'targetAttribute' => ['id_kabupaten' => 'id_kabupaten']],
         ];
     }
@@ -61,8 +49,6 @@ class Kecamatan extends \yii\db\ActiveRecord
             'id_kecamatan' => 'Id Kecamatan',
             'nama_kecamatan' => 'Nama Kecamatan',
             'id_kabupaten' => 'Id Kabupaten',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 
@@ -90,10 +76,9 @@ class Kecamatan extends \yii\db\ActiveRecord
         return $this->hasMany(Kelurahan::className(), ['id_kecamatan' => 'id_kecamatan']);
     }
 
-    public static function getAllKecamatanAsKeyValue(){
-
-    	$model = Kecamatan::find()->all();
-    	$dataKecamatan = ArrayHelper::map($model,'id_kecamatan','nama_kecamatan');
-    	return $dataKecamatan;
+    public static function getKecamatanAsMap(){
+        $kecamatan = Kecamatan::find()->all();
+        $kecamatanMap  = ArrayHelper::map($kecamatan,'id_kecamatan','nama_kecamatan');
+        return $kecamatanMap;
     }
 }

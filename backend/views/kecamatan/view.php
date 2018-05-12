@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Kecamatan */
 
 $this->title = $model->nama_kecamatan;
+$this->params['breadcrumbs'][] = ['label'=>'Wilayah','url'=>['wilayah/index']];
 $this->params['breadcrumbs'][] = ['label' => 'Kecamatan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,13 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">face</i>
-                </div>
+            <div class="card-box">
                 <div class="card-content">
-                    <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
-
+                    <h4 class="header-title m-t-0 m-b-30"><?= Html::encode($this->title) ?></h4>
                     <div class="row">
                         <div class="col-md-12">
                             <p>
@@ -38,13 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             'model' => $model,
                             'attributes' => [
                                         'id_kecamatan',
-            ['attribute'=> 'Nama Provinsi',
-                'value'=>$model->getKabupaten()->one()->getProvinsi()->one()->nama_provinsi],
-            ['attribute'=> 'Nama Kabupaten',
-                'value'=> $model->getKabupaten()->one()->nama_kabupaten],
-	                            'nama_kecamatan',
-            'created_at',
-            'updated_at',
+            'nama_kecamatan',
+            'kabupaten.nama_kabupaten',
+                                'kabupaten.provinsi.nama_provinsi'
                             ],
                             ]) ?>
                         </div>

@@ -8,17 +8,15 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Kabupaten';
+$this->params['breadcrumbs'][] = ['label'=>'Wilayah','url'=>['wilayah/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
-            <div class="card-header card-header-icon" data-background-color="rose">
-                <i class="material-icons">face</i>
-            </div>
+        <div class="card-box">
             <div class="card-content">
-                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h4 class="header-title m-t-0 m-b-30"><?= Html::encode($this->title) ?></h4>
                     <div class="row">
                         <div class="col-md-12">
                                 <?php Pjax::begin(); ?>
@@ -32,15 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'dataProvider' => $dataProvider,
                                 'filterModel' => $searchModel,
         'columns' => [
-                                ['class' => 'yii\grid\SerialColumn','header' => 'No'],
+                                ['class' => 'yii\grid\SerialColumn','header'=>'No'],
 
-                                           // 'id_kabupaten',
+                                            'id_kabupaten',
             'nama_kabupaten',
-           // 'id_provinsi',
-           // 'created_at',
-            //'updated_at',
+            'provinsi.nama_provinsi',
 
-                                ['class' => 'yii\grid\ActionColumn','header' => 'Aksi'],
+                                ['class' => 'yii\grid\ActionColumn','header'=>'Aksi'],
                                 ],
                                 ]); ?>
                                                             <?php Pjax::end(); ?>

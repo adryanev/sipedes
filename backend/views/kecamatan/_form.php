@@ -12,12 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-	<?= $form->field($model, 'id_kabupaten')->widget(\kartik\select2\Select2::className(),
-        ['data' => $dataKabupaten,
-         'language' => 'id',
-         'options' => ['placeholder'=>'Pilih Kabupaten'],])->label('Nama Kabupaten') ?>
+    <?= $form->field($model, 'id_kabupaten')->widget(\kartik\select2\Select2::className(),[
+            'data' => $dataKabupaten,
+        'options' => ['placeholder'=>'Pilih Kabupaten']
+    ]) ?>
+
+    <?= $form->field($model, 'id_kecamatan')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'nama_kecamatan')->textInput(['maxlength' => true]) ?>
+
+
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

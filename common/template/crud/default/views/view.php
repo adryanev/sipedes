@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 
@@ -25,13 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">face</i>
-                </div>
+            <div class="card-box">
                 <div class="card-content">
-                    <h4 class="card-title"><?= "<?= " ?>Html::encode($this->title) ?></h4>
-
+                    <h4 class="header-title m-t-0 m-b-30"><?= "<?= " ?>Html::encode($this->title) ?></h4>
                     <div class="row">
                         <div class="col-md-12">
                             <p>

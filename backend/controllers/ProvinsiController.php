@@ -5,9 +5,6 @@ namespace backend\controllers;
 use Yii;
 use common\models\Provinsi;
 use common\models\ProvinsiSearch;
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,16 +20,6 @@ class ProvinsiController extends Controller
     public function behaviors()
     {
         return [
-	        'access' => [
-		        'class' => AccessControl::className(),
-		        'rules' => [
-			       			        [
-				        'actions' => ['create','view','index','delete'],
-				        'allow' => true,
-				        'roles' => ['@'],
-			        ],
-		        ],
-	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -59,7 +46,7 @@ class ProvinsiController extends Controller
 
     /**
      * Displays a single Provinsi model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -79,14 +66,11 @@ class ProvinsiController extends Controller
     {
         $model = new Provinsi();
 
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil menambahkan provinsi');
             return $this->redirect(['view', 'id' => $model->id_provinsi]);
         }
 
         return $this->render('create', [
-
             'model' => $model,
         ]);
     }
@@ -94,7 +78,7 @@ class ProvinsiController extends Controller
     /**
      * Updates an existing Provinsi model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -103,7 +87,6 @@ class ProvinsiController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil mengupdate provinsi');
             return $this->redirect(['view', 'id' => $model->id_provinsi]);
         }
 
@@ -115,14 +98,13 @@ class ProvinsiController extends Controller
     /**
      * Deletes an existing Provinsi model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success','Berhasil Menghapus Provinsi');
 
         return $this->redirect(['index']);
     }
@@ -130,7 +112,7 @@ class ProvinsiController extends Controller
     /**
      * Finds the Provinsi model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return Provinsi the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -142,6 +124,4 @@ class ProvinsiController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }

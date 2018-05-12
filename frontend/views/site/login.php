@@ -7,33 +7,46 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Login | SIPEDES';
+
+$fieldOptions1 = [
+    'options' => ['class' => 'input-group'],
+    'template'=>" <span class=\"input-group-addon\"> <i class=\"material-icons\">email</i></span><div class=\"form-group label-floating\">{label}{input}{hint}{error}</div>",
+];
+
+$fieldOptions2 =[
+    'options' => ['class' => 'input-group'],
+    'template'=>" <span class=\"input-group-addon\"> <i class=\"material-icons\">lock</i></span><div class=\"form-group label-floating\">{label}{input}{hint}{error}</div>",
+];
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                <div class="card card-login card-hidden">
+                    <div class="card-header text-center" data-background-color="rose">
+                        <h3 class="card-title">Login</h3>
+                        <div class="social-line">
+                            <h5>Untuk Melanjutkan</h5>
+                        </div>
+                    </div>
+                    <p class="category text-center">
+                        Isi sesuai data anda.
+                    </p>
+                    <div class="card-content">
+                        <?= $form->field($model, 'username',$fieldOptions1)->textInput()->label('Username',['class'=> 'control-label'] ) ?>
 
-    <p>Please fill out the following fields to login:</p>
+                        <?= $form->field($model, 'password',$fieldOptions2)->passwordInput()->label('Password') ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+                        <div class="footer text-center">
+                            <?= Html::submitButton('Login', ['class' => 'btn btn-rose btn-wd btn-lg', 'name' => 'login-button']) ?>
+                        </div>
+                    </div>
+                    <?php ActiveForm::end(); ?>
                 </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
-</div>

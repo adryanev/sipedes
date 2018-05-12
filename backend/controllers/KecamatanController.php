@@ -6,8 +6,6 @@ use common\models\Kabupaten;
 use Yii;
 use common\models\Kecamatan;
 use common\models\KecamatanSearch;
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,16 +21,6 @@ class KecamatanController extends Controller
     public function behaviors()
     {
         return [
-	        'access' => [
-		        'class' => AccessControl::className(),
-		        'rules' => [
-			        [
-				        'actions' => ['create','view','index','delete'],
-				        'allow' => true,
-				        'roles' => ['@'],
-			        ],
-		        ],
-	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -59,7 +47,7 @@ class KecamatanController extends Controller
 
     /**
      * Displays a single Kecamatan model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -78,58 +66,57 @@ class KecamatanController extends Controller
     public function actionCreate()
     {
         $model = new Kecamatan();
-        $dataKabupaten = Kabupaten::getAllKabupatenAsKeyValue();
+        $dataKabupaten = Kabupaten::getKabupatenAsMap();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil menambahkan kecamatan');
             return $this->redirect(['view', 'id' => $model->id_kecamatan]);
         }
 
         return $this->render('create', [
             'model' => $model,
-	        'dataKabupaten'=>$dataKabupaten,
+            'dataKabupaten'=>$dataKabupaten
         ]);
     }
 
     /**
      * Updates an existing Kecamatan model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $dataKabupaten = Kabupaten::getAllKabupatenAsKeyValue();
-
+        $dataKabupaten = Kabupaten::getKabupatenAsMap();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_kecamatan]);
         }
 
         return $this->render('update', [
             'model' => $model,
-            'dataKabupaten'=>$dataKabupaten,
+            'dataKabupaten'=>$dataKabupaten
         ]);
     }
 
     /**
      * Deletes an existing Kecamatan model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-		Yii::$app->session->setFlash('success','Berhasil menghapus kecamatan');
+
         return $this->redirect(['index']);
     }
 
     /**
      * Finds the Kecamatan model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return Kecamatan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -141,5 +128,4 @@ class KecamatanController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
 }

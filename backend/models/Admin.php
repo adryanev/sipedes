@@ -224,4 +224,14 @@ class Admin extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    public function tambahAdmin($model,$password){
+
+        $model->setPassword($password);
+        $model->generateAuthKey();
+        $model->jabatan = "admin";
+
+        $model->save() ? $model :null;
+
+    }
 }

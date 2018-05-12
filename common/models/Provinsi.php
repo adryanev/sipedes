@@ -3,16 +3,13 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "provinsi".
  *
- * @property int $id_provinsi
+ * @property string $id_provinsi
  * @property string $nama_provinsi
- * @property string $created_at
- * @property string $updated_at
  *
  * @property Kabupaten[] $kabupatens
  */
@@ -26,25 +23,16 @@ class Provinsi extends \yii\db\ActiveRecord
         return 'provinsi';
     }
 
-    public function behaviors() {
-	    return [
-		    'timestamp' => [
-			    'class' => TimestampBehavior::className(),
-			    'createdAtAttribute' => 'created_at',
-			    'updatedAtAttribute' => 'updated_at',
-			    'value' => new \yii\db\Expression('NOW()'),
-		    ],
-	    ];
-    }
-
-	/**
+    /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'safe'],
+            [['id_provinsi'], 'required'],
+            [['id_provinsi'], 'string', 'max' => 15],
             [['nama_provinsi'], 'string', 'max' => 255],
+            [['id_provinsi'], 'unique'],
         ];
     }
 
@@ -56,8 +44,6 @@ class Provinsi extends \yii\db\ActiveRecord
         return [
             'id_provinsi' => 'Id Provinsi',
             'nama_provinsi' => 'Nama Provinsi',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 
@@ -69,9 +55,11 @@ class Provinsi extends \yii\db\ActiveRecord
         return $this->hasMany(Kabupaten::className(), ['id_provinsi' => 'id_provinsi']);
     }
 
-    public static function getAllProvinsiAsKeyValue(){
-	    $model = Provinsi::find()->all();
-	    $dataKabupaten = ArrayHelper::map($model,'id_provinsi','nama_provinsi');
-	    return $dataKabupaten;
+    public static function getProvinsiAsMap(){
+
+        $provinsi = Provinsi::find()->all();
+        $provinsiMap = ArrayHelper::map($provinsi,'id_provinsi','nama_provinsi');
+        return $provinsiMap;
     }
+
 }

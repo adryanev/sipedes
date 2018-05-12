@@ -20,41 +20,42 @@ class m180315_142758_tambahkan_tabels_daerah extends Migration
         }
 
         $this->createTable('{{%provinsi}}',[
-            'id_provinsi'=>$this->primaryKey(),
+            'id_provinsi'=>$this->string(15),
             'nama_provinsi'=>$this->string(),
-            'created_at'=>$this->dateTime(),
-            'updated_at'=>$this->dateTime()
+
         ],$tableOptions);
+        $this->addPrimaryKey('provinsi_pk','provinsi','id_provinsi');
         $this->createTable('{{%kabupaten}}',[
-            'id_kabupaten'=>$this->primaryKey(),
+            'id_kabupaten'=>$this->string(15),
             'nama_kabupaten'=>$this->string(),
-            'id_provinsi'=>$this->integer(),
-            'created_at'=>$this->dateTime(),
-            'updated_at'=>$this->dateTime()
+            'id_provinsi'=>$this->string(15),
+
         ],$tableOptions);
+        $this->addPrimaryKey('kabupaten_pk','kabupaten','id_kabupaten');
         $this->createTable('{{%kecamatan}}',[
-            'id_kecamatan'=>$this->primaryKey(),
+            'id_kecamatan'=>$this->string(15),
             'nama_kecamatan'=>$this->string(),
-            'id_kabupaten'=>$this->integer(),
-            'created_at'=>$this->dateTime(),
-            'updated_at'=>$this->dateTime()
+            'id_kabupaten'=>$this->string(15),
+
         ],$tableOptions);
+        $this->addPrimaryKey('kecamatan_pk','kecamatan','id_kecamatan');
         $this->createTable('{{%kelurahan}}',[
 
-            'id_kelurahan'=>$this->primaryKey(),
+            'id_kelurahan'=>$this->string(15),
             'nama_kelurahan'=>$this->string(),
-            'id_kecamatan'=>$this->integer(),
-            'created_at'=>$this->dateTime(),
-            'updated_at'=>$this->dateTime()
+            'id_kecamatan'=>$this->string(15),
+
         ],$tableOptions);
+        $this->addPrimaryKey('kelurahan_pk','kelurahan','id_kelurahan');
+
         $this->createTable('{{%desa}}',[
-            'id_desa'=>$this->primaryKey(),
+            'id_desa'=>$this->string(15),
             'nama_desa'=>$this->string(),
-            'id_kecamatan'=>$this->integer(),
-            'created_at'=>$this->dateTime(),
-            'updated_at'=>$this->dateTime()
+            'id_kecamatan'=>$this->string(15),
+
         ],$tableOptions);
 
+        $this->addPrimaryKey('desa_pk','desa','id_desa');
 
         /*
          * ================================================== INDEX ==============================================

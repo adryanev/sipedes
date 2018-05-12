@@ -6,7 +6,6 @@ use common\models\Kecamatan;
 use Yii;
 use common\models\Kelurahan;
 use common\models\KelurahanSearch;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -22,16 +21,6 @@ class KelurahanController extends Controller
     public function behaviors()
     {
         return [
-	        'access' => [
-		        'class' => AccessControl::className(),
-		        'rules' => [
-			        [
-				        'actions' => ['create','view','index','delete'],
-				        'allow' => true,
-				        'roles' => ['@'],
-			        ],
-		        ],
-	        ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -58,7 +47,7 @@ class KelurahanController extends Controller
 
     /**
      * Displays a single Kelurahan model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -77,31 +66,30 @@ class KelurahanController extends Controller
     public function actionCreate()
     {
         $model = new Kelurahan();
-        $dataKecamatan = Kecamatan::getAllKecamatanAsKeyValue();
+        $dataKecamatan = Kecamatan::getKecamatanAsMap();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil menambahkan kelurahan');
             return $this->redirect(['view', 'id' => $model->id_kelurahan]);
         }
 
         return $this->render('create', [
             'model' => $model,
-	        'dataKecamatan'=>$dataKecamatan
+            'dataKecamatan'=>$dataKecamatan
         ]);
     }
 
     /**
      * Updates an existing Kelurahan model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $dataKecamatan = Kecamatan::getAllKecamatanAsKeyValue();
+        $dataKecamatan = Kecamatan::getKecamatanAsMap();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-	        Yii::$app->session->setFlash('success','Berhasil mengubah kelurahan');
             return $this->redirect(['view', 'id' => $model->id_kelurahan]);
         }
 
@@ -114,14 +102,13 @@ class KelurahanController extends Controller
     /**
      * Deletes an existing Kelurahan model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-	    Yii::$app->session->setFlash('success','Berhasil menghapus kelurahan');
 
         return $this->redirect(['index']);
     }
@@ -129,7 +116,7 @@ class KelurahanController extends Controller
     /**
      * Finds the Kelurahan model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return Kelurahan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

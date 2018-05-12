@@ -66,7 +66,10 @@ class UserController extends Controller
     {
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $password = $_POST['User']['password_hash'];
+            $model->tambahAkun($model,$password);
+            Yii::$app->session->setFlash('success','Berhasil membuat Akun');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +89,11 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $password = $_POST['User']['password_hash'];
+            $model->setPassword($password);
+            $model->save();
+            Yii::$app->session->setFlash('success','Berhasil memperbarui penilai');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -105,7 +112,7 @@ class UserController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        Yii::$app->session->setFlash('success','Berhasil menghapus penilai');
         return $this->redirect(['index']);
     }
 
