@@ -37,7 +37,7 @@ class MaterialDashboardAssetBundle extends AssetBundle
         'js/jquery-jvectormap.js',
         'js/nouislider.min.js',
         'js/jquery.select-bootstrap.js',
-        //'js/sweetalert2.js',
+        //'js/demo.js',
         'js/fullcalendar.min.js',
         'js/jquery.tagsinput.js',
         'js/jasny-bootstrap.min.js',

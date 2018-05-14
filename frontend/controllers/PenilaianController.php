@@ -16,8 +16,11 @@ class PenilaianController extends \yii\web\Controller
     public function actionDesa(){
 
         $title = 'Desa';
+        $file =file_get_contents(Yii::getAlias('@webroot').'/pertanyaan_desa.json');
 
-        return $this->render('pilih-daerah',['title'=>$title]);
+
+        $pertanyaan = Json::decode($file);
+        return $this->render('pertanyaan-test',['title'=>$title,'pertanyaan'=>$pertanyaan]);
     }
 
     public function actionKelurahan(){

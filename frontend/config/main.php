@@ -60,6 +60,22 @@ return [
                         'js/jquery-3.2.1.min.js',
                     ]
                 ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'js' => [
+                        'js/bootstrap.min.js',
+                    ]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => null,
+                    'basePath' => '@webroot',
+                    'baseUrl' => '@web',
+                    'css' => [
+                        'css/bootstrap.min.css',
+                    ]
+                ],
             ],
         ],
     ],
