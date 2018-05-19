@@ -33,11 +33,6 @@ class m180416_163950_create_tabel_jawaban extends Migration
         $this->createTable('{{%penilaian_wilayah_desa}}',[
             'id'=>$this->primaryKey(),
             'id_penilaian_desa'=>$this->integer(),
-            'a1'=>$this->integer(),
-            'a2'=>$this->integer(),
-            'a3'=>$this->integer(),
-            'a4'=>$this->integer(),
-            'a5'=>$this->integer(),
             'sub_total_wilayah'=>$this->integer()
         ],$tableOptions);
 
@@ -45,11 +40,6 @@ class m180416_163950_create_tabel_jawaban extends Migration
         $this->createTable('{{%penilaian_pemerintahan_desa}}',[
             'id'=>$this->primaryKey(),
             'id_penilaian_desa'=>$this->integer(),
-            'b1'=>$this->integer(),
-            'b2'=>$this->integer(),
-            'b3'=>$this->integer(),
-            'b4'=>$this->integer(),
-            'b5'=>$this->integer(),
             'sub_total_pemerintahan'=>$this->integer()
         ],$tableOptions);
 
@@ -57,15 +47,6 @@ class m180416_163950_create_tabel_jawaban extends Migration
         $this->createTable('{{%penilaian_masyarakat_desa}}',[
             'id'=>$this->primaryKey(),
             'id_penilaian_desa'=>$this->integer(),
-            'c1'=>$this->integer(),
-            'c2'=>$this->integer(),
-            'c3'=>$this->integer(),
-            'c4'=>$this->integer(),
-            'c5'=>$this->integer(),
-            'c6'=>$this->integer(),
-            'c7'=>$this->integer(),
-            'c8'=>$this->integer(),
-            'c9'=>$this->integer(),
             'sub_total_masyarakat'=>$this->integer()
         ],$tableOptions);
 
@@ -74,6 +55,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 	    //A1
 	    $this->createTable('{{%penilaian_desa_a1}}',[
 	    	'id'=>$this->primaryKey(),
+		    'id_penilaian_wilayah_desa'=>$this->integer(),
 		    'id_desa'=>$this->integer(),
 		    'nama'=>$this->string()->notNull(),
 		    'kode'=>$this->string()->notNull(),
@@ -86,7 +68,8 @@ class m180416_163950_create_tabel_jawaban extends Migration
 	    //A2
 	    $this->createTable('{{%penilaian_desa_a2}}',[
 	    	'id'=>$this->primaryKey(),
-		    'batas'=>$this->string()->notNull(),
+            'id_penilaian_wilayah_desa'=>$this->integer(),
+            'batas'=>$this->string()->notNull(),
 		    'penetapan_batas'=> $this->string()->notNull(),
 		    'umur_kurang_15'=>$this->integer()->notNull(),
 		    'umur_lebih_15_kurang_56'=> $this->integer()->notNull(),
@@ -100,7 +83,8 @@ class m180416_163950_create_tabel_jawaban extends Migration
 	    //A3
 	    $this->createTable('{{%penilaian_desa_a3}}',[
 	    	'id'=>$this->primaryKey(),
-		    '_1'=>$this->integer(1)->notNull(),
+            'id_penilaian_wilayah_desa'=>$this->integer(),
+            '_1'=>$this->integer(1)->notNull(),
 		    '_2'=>$this->integer(1)->notNull(),
 		    '_3'=>$this->integer(1)->notNull(),
 		    '_4'=>$this->integer(1)->notNull(),
@@ -137,6 +121,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 	    //tabel pertanyaan desa a4
         $this->createTable("{{%penilaian_desa_a4}}",[
             'id'=>$this->primaryKey(),
+            'id_penilaian_wilayah_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -154,6 +139,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
         //tabel pertanyaan desa a5
         $this->createTable('{{%penilaian_desa_a5}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_wilayah_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -165,6 +151,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
         //tabel pertanyaan desa b1
         $this->createTable('{{%penilaian_desa_b1}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_pemerintahan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -242,6 +229,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_b2}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_pemerintahan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -256,6 +244,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_b3}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_pemerintahan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -267,6 +256,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_b4}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_pemerintahan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -286,6 +276,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_b5}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_pemerintahan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -297,6 +288,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c1}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -307,6 +299,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c2}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -322,6 +315,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c3}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -331,6 +325,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c4}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -360,6 +355,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c5}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -372,6 +368,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c6}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -391,6 +388,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c7}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->string(10)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -400,6 +398,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c8}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             'sub_total_desa_c8'=>$this->integer()
@@ -407,6 +406,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
 
         $this->createTable('{{%penilaian_desa_c9}}',[
             'id'=>$this->primaryKey(),
+            'id_penilaian_kemasyarakatan_desa'=>$this->integer(),
             '_1'=>$this->integer(1)->notNull(),
             '_2'=>$this->integer(1)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
@@ -420,26 +420,25 @@ class m180416_163950_create_tabel_jawaban extends Migration
         $this->addForeignKey('fk-penilaian_wilayah_id_penilaian','{{%penilaian_wilayah_desa}}','id_penilaian_desa','{{%penilaian_desa}}','id','RESTRICT','CASCADE');
         $this->addForeignKey('fk-penilaian_pemerintahan_id_penilaian','{{%penilaian_pemerintahan_desa}}','id_penilaian_desa','{{%penilaian_desa}}','id','RESTRICT','CASCADE');
         $this->addForeignKey('fk-penilaian_masyarakat_id_penilaian','{{%penilaian_masyarakat_desa}}','id_penilaian_desa','{{%penilaian_desa}}','id','RESTRICT','CASCADE');
-
-       $this->addForeignKey('fk_a1_penilaian-a1_id','penilaian_wilayah_desa','a1','penilaian_desa_a1','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-a2_id','penilaian_wilayah_desa','a2','penilaian_desa_a2','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-a3_id','penilaian_wilayah_desa','a3','penilaian_desa_a3','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-a4_id','penilaian_wilayah_desa','a4','penilaian_desa_a4','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-a5_id','penilaian_wilayah_desa','a5','penilaian_desa_a5','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-b1_id','penilaian_pemerintahan_desa','b1','penilaian_desa_b1','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-b2_id','penilaian_pemerintahan_desa','b2','penilaian_desa_b2','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-b3_id','penilaian_pemerintahan_desa','b3','penilaian_desa_b3','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-b4_id','penilaian_pemerintahan_desa','b4','penilaian_desa_b4','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-b5_id','penilaian_pemerintahan_desa','b5','penilaian_desa_b5','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c1_id','penilaian_masyarakat_desa','c1','penilaian_desa_c1','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c2_id','penilaian_masyarakat_desa','c2','penilaian_desa_c2','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c3_id','penilaian_masyarakat_desa','c3','penilaian_desa_c3','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c4_id','penilaian_masyarakat_desa','c4','penilaian_desa_c4','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c5_id','penilaian_masyarakat_desa','c5','penilaian_desa_c5','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c6_id','penilaian_masyarakat_desa','c6','penilaian_desa_c6','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c7_id','penilaian_masyarakat_desa','c7','penilaian_desa_c7','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c8_id','penilaian_masyarakat_desa','c8','penilaian_desa_c8','id','RESTRICT','CASCADE');
-       $this->addForeignKey('fk_a1_penilaian-c9_id','penilaian_masyarakat_desa','c9','penilaian_desa_c9','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-a1_id','penilaian_desa_a1','id_penilaian_wilayah_desa','penilaian_wilayah_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-a2_id','penilaian_desa_a2','id_penilaian_wilayah_desa','penilaian_wilayah_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-a3_id','penilaian_desa_a3','id_penilaian_wilayah_desa','penilaian_wilayah_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-a4_id','penilaian_desa_a4','id_penilaian_wilayah_desa','penilaian_wilayah_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-a5_id','penilaian_desa_a5','id_penilaian_wilayah_desa','penilaian_wilayah_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-b1_id','penilaian_desa_b1','id_penilaian_pemerintahan_desa','penilaian_pemerintahan_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-b2_id','penilaian_desa_b2','id_penilaian_pemerintahan_desa','penilaian_pemerintahan_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-b3_id','penilaian_desa_b3','id_penilaian_pemerintahan_desa','penilaian_pemerintahan_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-b4_id','penilaian_desa_b4','id_penilaian_pemerintahan_desa','penilaian_pemerintahan_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-b5_id','penilaian_desa_b5','id_penilaian_pemerintahan_desa','penilaian_pemerintahan_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c1_id','penilaian_desa_c1','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c2_id','penilaian_desa_c2','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c3_id','penilaian_desa_c3','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c4_id','penilaian_desa_c4','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c5_id','penilaian_desa_c5','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c6_id','penilaian_desa_c6','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c7_id','penilaian_desa_c7','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c8_id','penilaian_desa_c8','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
+       $this->addForeignKey('fk_a1_penilaian-c9_id','penilaian_desa_c9','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
 
 
 

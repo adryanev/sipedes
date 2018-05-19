@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
 
-    <?= $form->field($model, 'password_hash')->textInput(['maxlength' => true])->label('Password') ?>
+    <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true])->label('Password') ?>
 
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
@@ -23,9 +23,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
-    <?php if(!$model->isNewRecord): ?>
+
     <?= $form->field($model, 'status')->dropDownList(['10'=>'Aktif','0'=>'Tidak Aktif']) ?>
-    <?php endif; ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

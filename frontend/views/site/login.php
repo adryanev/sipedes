@@ -4,6 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
+use yii2mod\alert\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -35,6 +36,7 @@ $fieldOptions2 =[
                         Isi sesuai data anda.
                     </p>
                     <div class="card-content">
+                        <?php echo Alert::widget(['useSessionFlash'=>true])?>
                         <?= $form->field($model, 'username',$fieldOptions1)->textInput()->label('Username',['class'=> 'control-label'] ) ?>
 
                         <?= $form->field($model, 'password',$fieldOptions2)->passwordInput()->label('Password') ?>

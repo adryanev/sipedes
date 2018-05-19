@@ -4,6 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
+use yii2mod\alert\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 $fieldOptions1 = [
@@ -28,7 +29,7 @@ $fieldOptions2 = [
     <div class="m-t-40 card-box">
         <div class="panel-body">
             <h1><?= Html::encode($this->title) ?></h1>
-
+            <?php echo Alert::widget(['useSessionFlash'=>true])?>
 
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 

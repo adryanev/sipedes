@@ -9,7 +9,6 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\web\View;
 use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
 \frontend\assets\MaterialDashboardAssetBundle::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -41,6 +40,7 @@ use common\widgets\Alert;
 <div class="wrapper wrapper-full-page">
     <div class="full-page login-page" filter-color="black" data-image="<?=Yii::$app->urlManager->baseUrl?>/img/login.jpeg">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+
         <?=$content?>
         <footer class="footer">
             <div class="container">

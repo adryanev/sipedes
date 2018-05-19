@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User';
+$this->title = 'Penilai';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -33,12 +33,23 @@ $this->params['breadcrumbs'][] = $this->title;
 
                                             'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            //'email:email',
-            //'status',
-            //'nama',
+            //'auth_key',
+            //'password_hash',
+            //'password_reset_token',
+            'email:email',
+            [
+                'attribute'=>'status',
+                'format'=>'raw',
+                'value'=> function($model){
+                    if ($model->status === 10){
+                        return 'Aktif';
+                    }
+                    else{
+                        return 'Tidak Aktif';
+                    }
+                }
+            ],
+            'nama',
             //'created_at',
             //'updated_at',
 
