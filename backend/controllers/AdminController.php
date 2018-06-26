@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Admin;
 use backend\models\AdminSearch;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +36,7 @@ class AdminController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->identity->jabatan != 'su' && Yii::$app->user->identity->jabatan != 'pimpinan'){
+        if(Yii::$app->user->identity->jabatan != 'Super Admin' && Yii::$app->user->identity->jabatan != 'Pimpinan'){
             return $this->redirect(['admin/view']);
         }
         $searchModel = new AdminSearch();
@@ -53,9 +54,15 @@ class AdminController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView()
+    public function actionView($id)
     {
-        $model = $this->findModel(Yii::$app->user->identity->getId());
+
+        if(Yii::$app->user->identity->jabatan == 'Pimpinan' || Yii::$app->user->identity->jabatan == 'Super Admin'){
+            $model = $this->findModel($id);
+        }
+        else{
+            $model = $this->findModel(Yii::$app->user->identity->getId());
+        }
         return $this->render('view', [
             'model' => $model
         ]);
@@ -68,10 +75,26 @@ class AdminController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->identity->jabatan != 'Super Admin' && Yii::$app->user->identity->jabatan != 'Pimpinan'){
+            return $this->redirect(['admin/view']);
+        }
         $model = new Admin();
+        $data = Yii::$app->request->post();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+        if ($model->load($data)) {
+            $pass = $data['Admin']['password_hash'];
+            $model->generateAuthKey();
+            $model->setPassword($pass);
+            $model->avatar = "2.jpg";
+
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else{
+                VarDumper::dump($model);
+            }
+
         }
 
         return $this->render('create', [
@@ -88,6 +111,9 @@ class AdminController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->identity->jabatan != 'Super Admin' && Yii::$app->user->identity->jabatan != 'Pimpinan'){
+            return $this->redirect(['admin/view']);
+        }
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -108,6 +134,9 @@ class AdminController extends Controller
      */
     public function actionDelete($id)
     {
+        if(Yii::$app->user->identity->jabatan != 'Super Admin' && Yii::$app->user->identity->jabatan != 'Pimpinan'){
+            return $this->redirect(['admin/view']);
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

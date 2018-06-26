@@ -56,7 +56,6 @@ class m180416_163950_create_tabel_jawaban extends Migration
 	    $this->createTable('{{%penilaian_desa_a1}}',[
 	    	'id'=>$this->primaryKey(),
 		    'id_penilaian_wilayah_desa'=>$this->integer(),
-		    'id_desa'=>$this->integer(),
 		    'nama'=>$this->string()->notNull(),
 		    'kode'=>$this->string()->notNull(),
 		    'topologi'=>$this->string()->notNull(),
@@ -114,7 +113,6 @@ class m180416_163950_create_tabel_jawaban extends Migration
 		    '_28'=>$this->integer(1)->notNull(),
 		    '_29'=>$this->integer(1)->notNull(),
 		    '_30'=>$this->integer(1)->notNull(),
-		    '_31'=>$this->integer(1)->notNull(),
             'sub_total_desa_a3'=>$this->integer()
 	    ],$tableOptions);
 
@@ -393,6 +391,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
             '_2'=>$this->string(10)->notNull(),
             '_3'=>$this->integer(1)->notNull(),
             '_4'=>$this->integer(1)->notNull(),
+            '_5'=>$this->integer(1)->notNull(),
             'sub_total_desa_c7'=>$this->integer()
         ],$tableOptions);
 
@@ -439,7 +438,7 @@ class m180416_163950_create_tabel_jawaban extends Migration
        $this->addForeignKey('fk_a1_penilaian-c7_id','penilaian_desa_c7','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
        $this->addForeignKey('fk_a1_penilaian-c8_id','penilaian_desa_c8','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
        $this->addForeignKey('fk_a1_penilaian-c9_id','penilaian_desa_c9','id_penilaian_kemasyarakatan_desa','penilaian_masyarakat_desa','id','RESTRICT','CASCADE');
-
+        $this->addForeignKey('fk_penilaian_penilai','penilaian_desa','penilai','user','id','SET NULL','CASCADE');
 
 
     }

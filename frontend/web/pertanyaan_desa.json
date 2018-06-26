@@ -115,7 +115,7 @@
             "jawaban": [
               {
                 "1": "Tidak ada",
-                "2": "Ada"
+                "4": "Ada"
               }
             ]
           },
@@ -130,15 +130,6 @@
           },
           {
             "pertanyaan": "Lembaga penyedia teknologi.",
-            "jawaban": [
-              {
-                "1": "Tidak ada",
-                "2": "Ada"
-              }
-            ]
-          },
-          {
-            "pertanyaan": "Adanya pelembagaan aktivitas inovasi masyarakat (mis. UMKM, koperasi, cluster).",
             "jawaban": [
               {
                 "1": "Tidak ada",
@@ -395,11 +386,11 @@
             ]
           },
           {
-            "pertanyaan": "Apakah melibatkan BPD dan Pemerintah Desa dan Kelurahan.",
+            "pertanyaan": "Apakah melibatkan BPD dan Pemerintah Desa dan Kelurahan .",
             "jawaban": [
               {
-                "1": "Tidak",
-                "2": "Ya"
+                "4": "Tidak Ada",
+                "1": "Ada"
               }
             ]
           },
@@ -407,8 +398,8 @@
             "pertanyaan": "Menyebabkan terjadinya pembebanan pada Desa dan Kelurahan.",
             "jawaban": [
               {
-                "1": "Tidak ada",
-                "2": "Ada"
+                "4": "Tidak Ada",
+                "1": "Ada"
               }
             ]
           },
@@ -416,8 +407,8 @@
             "pertanyaan": "Menyebabkan terjadinya alih fungsi lahan pertanian.",
             "jawaban": [
               {
-                "1": "Tidak ada",
-                "2": "Ada"
+                "4": "Tidak Ada",
+                "1": "Ada"
               }
             ]
           },
@@ -425,8 +416,8 @@
             "pertanyaan": "Mengurangi jumlah kepemilikan Tanah Desa/Tanah Kas Desa (Khusus Diisi Oleh Desa).",
             "jawaban": [
               {
-                "1": "Tidak ada",
-                "2": "Ada"
+                "4": "Tidak Ada",
+                "1": "Ada"
               }
             ]
           }
@@ -616,7 +607,8 @@
                 "2": "Ada"
               }
             ]
-          },{
+          },
+          {
             "pertanyaan": "Pelepasan.",
             "jawaban": [
               {
@@ -669,7 +661,8 @@
                 "2": "Ada"
               }
             ]
-          },{
+          },
+          {
             "pertanyaan": "Buku Sekretariat.",
             "jawaban": [
               {
@@ -704,7 +697,8 @@
                 "2": "Ada"
               }
             ]
-          },{
+          },
+          {
             "pertanyaan": "Gedung Kantor.",
             "jawaban": [
               {
@@ -865,7 +859,6 @@
               }
             ]
           },
-
           {
             "pertanyaan": "Berapa kali dalam setahun Desa menerima Bimbingan Teknis dari Pemerintah Pusat.",
             "jawaban": [
@@ -899,7 +892,6 @@
               }
             ]
           },
-
           {
             "pertanyaan": "Jaringan Listrik.",
             "jawaban": [
@@ -917,7 +909,8 @@
                 "2": "Stabil"
               }
             ]
-          },{
+          },
+          {
             "pertanyaan": "Sumber Daya Listrik (NON-PLN).",
             "jawaban": [
               {
@@ -925,7 +918,8 @@
                 "2": "Stabil"
               }
             ]
-          },{
+          },
+          {
             "pertanyaan": "Perpustakaan.",
             "jawaban": [
               {

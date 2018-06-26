@@ -9,7 +9,6 @@ use Yii;
  *
  * @property int $id
  * @property int $id_penilaian_wilayah_desa
- * @property int $id_desa
  * @property string $nama
  * @property string $kode
  * @property string $topologi
@@ -35,7 +34,8 @@ class PenilaianDesaA1 extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_penilaian_wilayah_desa', 'id_desa'], 'integer'],
+            [['id_penilaian_wilayah_desa'], 'integer'],
+            [['id_penilaian_wilayah_desa'],'safe'],
             [['nama', 'kode', 'topologi', 'orbitasi', 'kondisi_1', 'kondisi_2'], 'required'],
             [['nama', 'kode', 'topologi', 'orbitasi', 'kondisi_1', 'kondisi_2'], 'string', 'max' => 255],
             [['id_penilaian_wilayah_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianWilayahDesa::className(), 'targetAttribute' => ['id_penilaian_wilayah_desa' => 'id']],

@@ -42,6 +42,7 @@ class PenilaianDesaA4 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_wilayah_desa', '_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', 'sub_total_desa_a4'], 'integer'],
             [['_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11'], 'required'],
+            [['id_penilaian_wilayah_desa'],'safe'],
             [['id_penilaian_wilayah_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianWilayahDesa::className(), 'targetAttribute' => ['id_penilaian_wilayah_desa' => 'id']],
         ];
     }
@@ -75,5 +76,20 @@ class PenilaianDesaA4 extends \yii\db\ActiveRecord
     public function getPenilaianWilayahDesa()
     {
         return $this->hasOne(PenilaianWilayahDesa::className(), ['id' => 'id_penilaian_wilayah_desa']);
+    }
+    public function sumA4(){
+        $sumA4 = $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4
+            +$this->_5
+            +$this->_6
+            +$this->_7
+            +$this->_8
+            +$this->_9
+            +$this->_10
+            +$this->_11;
+        $this->sub_total_desa_a4 = $sumA4;
+        return $sumA4;
     }
 }

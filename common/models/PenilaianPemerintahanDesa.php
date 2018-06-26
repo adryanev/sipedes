@@ -56,7 +56,7 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaB1s()
     {
-        return $this->hasMany(PenilaianDesaB1::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaB1::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
     }
 
     /**
@@ -64,7 +64,7 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaB2s()
     {
-        return $this->hasMany(PenilaianDesaB2::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaB2::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
     }
 
     /**
@@ -72,7 +72,7 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaB3s()
     {
-        return $this->hasMany(PenilaianDesaB3::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaB3::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
     }
 
     /**
@@ -80,7 +80,7 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaB4s()
     {
-        return $this->hasMany(PenilaianDesaB4::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaB4::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
     }
 
     /**
@@ -88,7 +88,7 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaB5s()
     {
-        return $this->hasMany(PenilaianDesaB5::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaB5::className(), ['id_penilaian_pemerintahan_desa' => 'id']);
     }
 
     /**
@@ -97,5 +97,11 @@ class PenilaianPemerintahanDesa extends \yii\db\ActiveRecord
     public function getPenilaianDesa()
     {
         return $this->hasOne(PenilaianDesa::className(), ['id' => 'id_penilaian_desa']);
+    }
+
+    public function subTotalPemerintahanDesa(){
+        $this->sub_total_pemerintahan = $this->getPenilaianDesaB1s()->one()['sub_total_desa_b1'] + $this->getPenilaianDesaB2s()->one()['sub_total_desa_b2']
+            + $this->getPenilaianDesaB3s()->one()['sub_total_desa_b3'] + $this->getPenilaianDesaB4s()->one()['sub_total_desa_b4']+ $this->getPenilaianDesaB5s()->one()['sub_total_desa_b5'];
+        return $this->sub_total_pemerintahan;
     }
 }

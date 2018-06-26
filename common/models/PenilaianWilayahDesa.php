@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\VarDumper;
 
 /**
  * This is the model class for table "penilaian_wilayah_desa".
@@ -56,7 +57,7 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaA1s()
     {
-        return $this->hasMany(PenilaianDesaA1::className(), ['id_penilaian_wilayah_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaA1::className(), ['id_penilaian_wilayah_desa' => 'id']);
     }
 
     /**
@@ -64,7 +65,7 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaA2s()
     {
-        return $this->hasMany(PenilaianDesaA2::className(), ['id_penilaian_wilayah_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaA2::className(), ['id_penilaian_wilayah_desa' => 'id']);
     }
 
     /**
@@ -72,7 +73,7 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaA3s()
     {
-        return $this->hasMany(PenilaianDesaA3::className(), ['id_penilaian_wilayah_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaA3::className(), ['id_penilaian_wilayah_desa' => 'id']);
     }
 
     /**
@@ -80,7 +81,7 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaA4s()
     {
-        return $this->hasMany(PenilaianDesaA4::className(), ['id_penilaian_wilayah_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaA4::className(), ['id_penilaian_wilayah_desa' => 'id']);
     }
 
     /**
@@ -88,7 +89,7 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
      */
     public function getPenilaianDesaA5s()
     {
-        return $this->hasMany(PenilaianDesaA5::className(), ['id_penilaian_wilayah_desa' => 'id']);
+        return $this->hasOne(PenilaianDesaA5::className(), ['id_penilaian_wilayah_desa' => 'id']);
     }
 
     /**
@@ -97,5 +98,11 @@ class PenilaianWilayahDesa extends \yii\db\ActiveRecord
     public function getPenilaianDesa()
     {
         return $this->hasOne(PenilaianDesa::className(), ['id' => 'id_penilaian_desa']);
+    }
+
+    public function subTotalWilayah(){
+      $this->sub_total_wilayah =   $this->getPenilaianDesaA3s()->one()['sub_total_desa_a3'] + $this->getPenilaianDesaA4s()->one()['sub_total_desa_a4']
+          +$this->getPenilaianDesaA5s()->one()['sub_total_desa_a5'] ;
+      return $this->sub_total_wilayah;
     }
 }

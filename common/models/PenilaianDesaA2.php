@@ -39,6 +39,7 @@ class PenilaianDesaA2 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_wilayah_desa', 'umur_kurang_15', 'umur_lebih_15_kurang_56', 'umur_lebih_56', 'jumlah_penduduk_total', 'jumlah_penduduk_laki', 'jumlah_penduduk_pr', 'jumlah_kk'], 'integer'],
             [['batas', 'penetapan_batas', 'umur_kurang_15', 'umur_lebih_15_kurang_56', 'umur_lebih_56', 'jumlah_penduduk_total', 'jumlah_penduduk_laki', 'jumlah_penduduk_pr', 'jumlah_kk'], 'required'],
+            [['id_penilaian_wilayah_desa'],'safe'],
             [['batas', 'penetapan_batas'], 'string', 'max' => 255],
             [['id_penilaian_wilayah_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianWilayahDesa::className(), 'targetAttribute' => ['id_penilaian_wilayah_desa' => 'id']],
         ];

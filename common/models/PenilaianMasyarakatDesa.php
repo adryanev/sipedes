@@ -134,4 +134,19 @@ class PenilaianMasyarakatDesa extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianDesa::className(), ['id' => 'id_penilaian_desa']);
     }
+
+    public function subTotalMasyarakatDesa(){
+        $this->sub_total_masyarakat =
+            $this->getPenilaianDesaC1s()->one()['sub_total_desa_c1']
+            +$this->getPenilaianDesaC2s()->one()['sub_total_desa_c2']
+            +$this->getPenilaianDesaC3s()->one()['sub_total_desa_c3']
+            +$this->getPenilaianDesaC4s()->one()['sub_total_desa_c4']
+            +$this->getPenilaianDesaC5s()->one()['sub_total_desa_c5']
+            +$this->getPenilaianDesaC6s()->one()['sub_total_desa_c6']
+            +$this->getPenilaianDesaC7s()->one()['sub_total_desa_c7']
+            +$this->getPenilaianDesaC8s()->one()['sub_total_desa_c8']
+            +$this->getPenilaianDesaC9s()->one()['sub_total_desa_c9'];
+
+        return $this->sub_total_masyarakat;
+    }
 }

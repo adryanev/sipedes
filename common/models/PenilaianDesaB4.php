@@ -45,6 +45,7 @@ class PenilaianDesaB4 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_pemerintahan_desa', '_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14', 'sub_total_desa_b4'], 'integer'],
             [['_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14'], 'required'],
+            [['id_penilaian_pemerintahan_desa'],'safe'],
             [['id_penilaian_pemerintahan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianPemerintahanDesa::className(), 'targetAttribute' => ['id_penilaian_pemerintahan_desa' => 'id']],
         ];
     }
@@ -81,5 +82,24 @@ class PenilaianDesaB4 extends \yii\db\ActiveRecord
     public function getPenilaianPemerintahanDesa()
     {
         return $this->hasOne(PenilaianPemerintahanDesa::className(), ['id' => 'id_penilaian_pemerintahan_desa']);
+    }
+
+    public function sumB4(){
+        $sumB4 = $this->_1
+            + $this->_2
+            + $this->_3
+            + $this->_4
+            + $this->_5
+            + $this->_6
+            + $this->_7
+            + $this->_8
+            + $this->_9
+            + $this->_10
+            + $this->_11
+            + $this->_12
+            + $this->_13
+            + $this->_14;
+        $this->sub_total_desa_b4 = $sumB4;
+        return $sumB4;
     }
 }

@@ -3,6 +3,9 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "penilaian_desa".
@@ -28,7 +31,22 @@ class PenilaianDesa extends \yii\db\ActiveRecord
     {
         return 'penilaian_desa';
     }
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => 'updated_at',
+                ],
+                'value' => function($event) {
 
+                    return new Expression('NOW()');
+                }
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -88,5 +106,19 @@ class PenilaianDesa extends \yii\db\ActiveRecord
     public function getPenilaianWilayahDesas()
     {
         return $this->hasMany(PenilaianWilayahDesa::className(), ['id_penilaian_desa' => 'id']);
+    }
+
+    /**
+     * @return yii\db\ActiveQuery
+     */
+
+    public function getPenilai(){
+        return $this->hasOne(User::className(),['id'=>'penilai']);
+    }
+
+    public function totalNilai(){
+        $total = $this->getPenilaianWilayahDesas()->one()->sub_total_wilayah + $this->getPenilaianPemerintahanDesas()->one()->sub_total_pemerintahan
+            + $this->getPenilaianMasyarakatDesas()->one()->sub_total_masyarakat;
+        return $total;
     }
 }

@@ -55,7 +55,7 @@ $currentAction = Yii::$app->controller->action->id
                     </a>
                     <div class="collapse" id="componentsExamples">
                         <ul class="nav">
-                            <li <?php if ($currentAction == 'desa') echo 'class="active"' ?>>
+                            <li <?php if ($currentAction == 'desa' || $currentAction == 'penilaian-desa') echo 'class="active"' ?>>
                                 <?= \yii\helpers\Html::a(' <span class="sidebar-mini">DES</span>
                                 <span class="sidebar-normal">Penilaian Desa</span>',\yii\helpers\Url::toRoute(['penilaian/desa']))
                                 ?>

@@ -47,15 +47,22 @@ $controllerName = substr($route,0,strpos($route,'/'));
                 <li class="text-muted menu-title">Navigation</li>
             </ul>
             <?= \common\widgets\Menu::widget(
-                [
-                    'items' => [
-                        ['label'=>'Beranda', 'icon'=>'zmdi-view-dashboard','url'=>['/site'],'template'=>$controllerName === 'site' && Yii::$app->user->identity->jabatan !='pimpinan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
-                        ['label'=>'Wilayah   ', 'icon'=>'zmdi-map','url'=>['/wilayah'],'template'=>$controllerName === 'wilayah' || $controllerName === 'provinsi' || $controllerName === 'kabupaten' || $controllerName == 'kecamatan' || $controllerName === 'kelurahan' || $controllerName === 'desa' && Yii::$app->user->identity->jabatan !='pimpinan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
-                        ['label'=>'Laporan', 'icon'=>'zmdi-file-text','url'=>['/laporan'],'template'=>$controllerName === 'laporan' && Yii::$app->user->identity->jabatan !='pimpinan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
-                        ['label'=>'Penilai', 'icon'=>'zmdi-accounts','url'=>['/user'],'template'=>$controllerName === 'user' && Yii::$app->user->identity->jabatan !='pimpinan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
-                        ['label'=>'Admin', 'icon'=>'zmdi-account','url'=>['/admin'],'template'=>$controllerName === 'admin'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                Yii::$app->user->identity->jabatan === 'Pimpinan' ?
+                    [
+                 'items' => [
+                                     ['label'=>'Admin', 'icon'=>'zmdi-account','url'=>['/admin'],'template'=>$controllerName === 'admin'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
                     ]
-                ]
+                ]:
+                    [
+                        'items' => [
+                            ['label'=>'Beranda', 'icon'=>'zmdi-view-dashboard','url'=>['/site'],'template'=>$controllerName === 'site'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                            ['label'=>'Wilayah   ', 'icon'=>'zmdi-map','url'=>['/wilayah'],'template'=>$controllerName === 'wilayah' || $controllerName === 'provinsi' || $controllerName === 'kabupaten' || $controllerName == 'kecamatan' || $controllerName === 'kelurahan' || $controllerName === 'desa'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                            ['label'=>'Laporan', 'icon'=>'zmdi-file-text','url'=>['/laporan'],'template'=>$controllerName === 'laporan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                            ['label'=>'Penilai', 'icon'=>'zmdi-accounts','url'=>['/user'],'template'=>$controllerName === 'user' ? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                            Yii::$app->user->identity->jabatan === 'Administrator' ? null: ['label'=>'Admin', 'icon'=>'zmdi-account','url'=>['/admin'],'template'=>$controllerName === 'admin'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                        ]
+                    ]
+
             ) ?>
         </div>
         <div class="clearfix"></div>

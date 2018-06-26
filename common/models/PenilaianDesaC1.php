@@ -36,6 +36,7 @@ class PenilaianDesaC1 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_kemasyarakatan_desa', '_1', '_2', '_3', '_4', '_5', 'sub_total_desa_c1'], 'integer'],
             [['_1', '_2', '_3', '_4', '_5'], 'required'],
+            [['id_penilaian_kemasyarakatan_desa'],'safe'],
             [['id_penilaian_kemasyarakatan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianMasyarakatDesa::className(), 'targetAttribute' => ['id_penilaian_kemasyarakatan_desa' => 'id']],
         ];
     }
@@ -63,5 +64,16 @@ class PenilaianDesaC1 extends \yii\db\ActiveRecord
     public function getPenilaianKemasyarakatanDesa()
     {
         return $this->hasOne(PenilaianMasyarakatDesa::className(), ['id' => 'id_penilaian_kemasyarakatan_desa']);
+    }
+
+    public function sumC1(){
+        $sumC1 =
+            $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4
+            +$this->_5;
+        $this->sub_total_desa_c1 = $sumC1;
+        return $sumC1;
     }
 }

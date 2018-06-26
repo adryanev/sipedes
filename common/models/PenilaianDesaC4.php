@@ -55,6 +55,7 @@ class PenilaianDesaC4 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_kemasyarakatan_desa', '_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14', '_15', '_16', '_17', '_18', '_19', '_20', '_21', '_22', '_23', '_24', 'sub_total_desa_c4'], 'integer'],
             [['_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14', '_15', '_16', '_17', '_18', '_19', '_20', '_21', '_22', '_23', '_24'], 'required'],
+            [['id_penilaian_kemasyarakatan_desa'],'safe'],
             [['id_penilaian_kemasyarakatan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianMasyarakatDesa::className(), 'targetAttribute' => ['id_penilaian_kemasyarakatan_desa' => 'id']],
         ];
     }
@@ -101,5 +102,35 @@ class PenilaianDesaC4 extends \yii\db\ActiveRecord
     public function getPenilaianKemasyarakatanDesa()
     {
         return $this->hasOne(PenilaianMasyarakatDesa::className(), ['id' => 'id_penilaian_kemasyarakatan_desa']);
+    }
+
+    public function sumC4(){
+        $sumC4 = $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4
+            +$this->_5
+            +$this->_6
+            +$this->_7
+            +$this->_8
+            +$this->_9
+            +$this->_10
+            +$this->_11
+            +$this->_12
+            +$this->_13
+            +$this->_14
+            +$this->_15
+            +$this->_16
+            +$this->_17
+            +$this->_18
+            +$this->_19
+            +$this->_20
+            +$this->_21
+            +$this->_22
+            +$this->_23
+            +$this->_24;
+
+        $this->sub_total_desa_c4 = $sumC4;
+        return $sumC4;
     }
 }

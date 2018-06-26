@@ -36,6 +36,7 @@ class PenilaianDesaB5 extends \yii\db\ActiveRecord
         return [
             [['id_penilaian_pemerintahan_desa', '_1', '_2', '_3', '_4', '_5', 'sub_total_desa_b5'], 'integer'],
             [['_1', '_2', '_3', '_4', '_5'], 'required'],
+            [['id_penilaian_pemerintahan_desa'],'safe'],
             [['id_penilaian_pemerintahan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianPemerintahanDesa::className(), 'targetAttribute' => ['id_penilaian_pemerintahan_desa' => 'id']],
         ];
     }
@@ -63,5 +64,15 @@ class PenilaianDesaB5 extends \yii\db\ActiveRecord
     public function getPenilaianPemerintahanDesa()
     {
         return $this->hasOne(PenilaianPemerintahanDesa::className(), ['id' => 'id_penilaian_pemerintahan_desa']);
+    }
+
+    public function sumB5(){
+        $sumB5 = $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4
+            +$this->_5;
+        $this->sub_total_desa_b5 = $sumB5;
+        return $sumB5;
     }
 }

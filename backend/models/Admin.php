@@ -44,14 +44,13 @@ class Admin extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'password_hash', 'email'], 'required'],
             [['status'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at','auth_key'], 'safe'],
             [['username', 'password_hash', 'password_reset_token', 'email', 'nama', 'nip', 'avatar', 'jabatan'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique','targetClass' =>'\backend\models\Admin','message' => 'Username sudah digunakan.'],
             [['email'], 'unique','targetClass' =>'\backend\models\Admin','message' => 'Email sudah digunakan.'],
-            [['password_reset_token'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];

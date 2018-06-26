@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "penilaian_desa_c2".
+ * This is the model class for table "penilaian_desa_c6".
  *
  * @property int $id
  * @property int $id_penilaian_kemasyarakatan_desa
@@ -19,18 +19,22 @@ use Yii;
  * @property int $_8
  * @property int $_9
  * @property int $_10
- * @property int $sub_total_desa_c2
+ * @property int $_11
+ * @property int $_12
+ * @property int $_13
+ * @property int $_14
+ * @property int $sub_total_desa_c6
  *
  * @property PenilaianMasyarakatDesa $penilaianKemasyarakatanDesa
  */
-class PenilaianDesaC2 extends \yii\db\ActiveRecord
+class PenilaianDesaC6 extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'penilaian_desa_c2';
+        return 'penilaian_desa_c6';
     }
 
     /**
@@ -39,8 +43,8 @@ class PenilaianDesaC2 extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_penilaian_kemasyarakatan_desa', '_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', 'sub_total_desa_c2'], 'integer'],
-            [['_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10'], 'required'],
+            [['id_penilaian_kemasyarakatan_desa', '_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14', 'sub_total_desa_c6'], 'integer'],
+            [['_1', '_2', '_3', '_4', '_5', '_6', '_7', '_8', '_9', '_10', '_11', '_12', '_13', '_14'], 'required'],
             [['id_penilaian_kemasyarakatan_desa'],'safe'],
             [['id_penilaian_kemasyarakatan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianMasyarakatDesa::className(), 'targetAttribute' => ['id_penilaian_kemasyarakatan_desa' => 'id']],
         ];
@@ -64,7 +68,11 @@ class PenilaianDesaC2 extends \yii\db\ActiveRecord
             '_8' => '8',
             '_9' => '9',
             '_10' => '10',
-            'sub_total_desa_c2' => 'Sub Total Desa C2',
+            '_11' => '11',
+            '_12' => '12',
+            '_13' => '13',
+            '_14' => '14',
+            'sub_total_desa_c6' => 'Sub Total Desa C6',
         ];
     }
 
@@ -76,8 +84,8 @@ class PenilaianDesaC2 extends \yii\db\ActiveRecord
         return $this->hasOne(PenilaianMasyarakatDesa::className(), ['id' => 'id_penilaian_kemasyarakatan_desa']);
     }
 
-    public function sumC2(){
-        $sumC2 = $this->_1
+    public function sumC6(){
+        $sumC6 = $this->_1
             +$this->_2
             +$this->_3
             +$this->_4
@@ -86,8 +94,12 @@ class PenilaianDesaC2 extends \yii\db\ActiveRecord
             +$this->_7
             +$this->_8
             +$this->_9
-            +$this->_10;
-        $this->sub_total_desa_c2 = $sumC2;
-        return $sumC2;
+            +$this->_10
+            +$this->_11
+            +$this->_12
+            +$this->_13
+            +$this->_14;
+        $this->sub_total_desa_c6 = $sumC6;
+        return $sumC6;
     }
 }
