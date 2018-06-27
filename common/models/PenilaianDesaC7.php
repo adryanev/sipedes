@@ -13,6 +13,7 @@ use Yii;
  * @property string $_2
  * @property int $_3
  * @property int $_4
+ * @property int $_5
  * @property int $sub_total_desa_c7
  *
  * @property PenilaianMasyarakatDesa $penilaianKemasyarakatanDesa
@@ -34,7 +35,7 @@ class PenilaianDesaC7 extends \yii\db\ActiveRecord
     {
         return [
             [['id_penilaian_kemasyarakatan_desa', '_1', '_3', '_4','_5', 'sub_total_desa_c7'], 'integer'],
-            [['_1', '_2', '_3', '_4',], 'required'],
+            [['_1', '_2', '_3', '_4','_5',], 'required'],
             [['_2'], 'string', 'max' => 20],
             [['id_penilaian_kemasyarakatan_desa'],'safe'],
             [['id_penilaian_kemasyarakatan_desa'], 'exist', 'skipOnError' => true, 'targetClass' => PenilaianMasyarakatDesa::className(), 'targetAttribute' => ['id_penilaian_kemasyarakatan_desa' => 'id']],
@@ -53,6 +54,7 @@ class PenilaianDesaC7 extends \yii\db\ActiveRecord
             '_2' => '2',
             '_3' => '3',
             '_4' => '4',
+            '_5' => '5',
             'sub_total_desa_c7' => 'Sub Total Desa C7',
         ];
     }
@@ -68,7 +70,8 @@ class PenilaianDesaC7 extends \yii\db\ActiveRecord
     public function sumC7(){
         $sumC7 = $this->_1
             +$this->_3
-            +$this->_4;
+            +$this->_4
+            +$this->_5;
         $this->sub_total_desa_c7 = $sumC7;
         return $sumC7;
     }

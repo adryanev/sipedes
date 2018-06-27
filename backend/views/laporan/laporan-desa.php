@@ -2272,8 +2272,8 @@
                     <td colspan="5">II. LEMBAGA KEMASYARAKATAN</td>
                 </tr>
                 <tr>
-                    <td rowspan="30">1</td>
-                    <td rowspan="30">Organisasi Pemuda</td>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Organisasi Pemuda</td>
                     <td>Aktifitas Organisasi Pemuda.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -2287,8 +2287,8 @@
                 </tr>
 
                 <tr>
-                    <td rowspan="30">2</td>
-                    <td rowspan="30">Organisasi Profesi (Petani, Pedagang, Nelayan, Buruh, Paguyuban, dll)</td>
+                    <td rowspan="3">2</td>
+                    <td rowspan="3">Organisasi Profesi (Petani, Pedagang, Nelayan, Buruh, Paguyuban, dll)</td>
                     <td>Aktifitas Organisasi Profesi.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -2302,46 +2302,13 @@
                 </tr>
 
                 <tr>
-                    <td>- Peningkatan kapasistas kelompok masyarakat 2 tahun terakhir.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_2 ?></td>
+                    <td rowspan="3">3</td>
+                    <td rowspan="3">Organisasi Olah Raga</td>
+                    <td>Aktifitas Organisasi Olah Raga.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_3 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Fasilitasi dalam pemasaran produk unggulan dari masyarakat</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_3 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>b. Kebijakan dalam pemberdayaan masyarakat, ada tidaknya regulasi dalam pemberdayaan masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_4 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td colspan="3">c. Pembinaan Masyarakat</td>
-                </tr>
-                <tr>
-                    <td>- Melakukan forum-forum kebersamaan seperti gotong royong 2 tahun terkahir</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_5  ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
+
                 <tr>
                     <td>Tidak Ada</td>
                 </tr>
@@ -2350,10 +2317,13 @@
                 </tr>
 
                 <tr>
-                    <td>- Reward bagi perangkat dan kelompok masyarakat</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_6 ?></td>
+                    <td rowspan="3">4</td>
+                    <td rowspan="3">LPM atau Sebutan Lain</td>
+                    <td>Aktifitas LPM.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_4 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
+
                 <tr>
                     <td>Tidak Ada</td>
                 </tr>
@@ -2362,55 +2332,108 @@
                 </tr>
 
                 <tr>
-                    <td colspan="3">d. Budaya Kerja</td>
-                </tr>
-                <tr>
-                    <td>- Apakah telah mendata kehadiran pegawai secara rutin.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_7 ?></td>
+                    <td rowspan="3">5</td>
+                    <td rowspan="3">Kelompok Gotong Royong</td>
+                    <td>Aktifitas Organisasi Olah Raga.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_5 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
+
                 <tr>
-                    <td>Tidak</td>
+                    <td>Tidak Ada</td>
                 </tr>
                 <tr>
-                    <td>Ya</td>
+                    <td>Ada</td>
                 </tr>
+
                 <tr>
-                    <td>- Apakah telah memiliki standar jam pelayanan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_8 ?></td>
+                    <td rowspan="3">6</td>
+                    <td rowspan="3">Karang Taruna</td>
+                    <td>Aktifitas Karang Taruna.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_6 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
+
                 <tr>
-                    <td>Tidak</td>
+                    <td>Tidak Ada</td>
                 </tr>
                 <tr>
-                    <td>Ya</td>
+                    <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>- Apakah sudah memiliki Standar Operasional Prosedur (SOP) Pelayanan Masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_9 ?></td>
+                    <td rowspan="3">7</td>
+                    <td rowspan="3">Lembaga Adat, Budaya dan Kesenian </td>
+                    <td>Aktifitas Lembaga Adat, Budaya dan Kesenian.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_7 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
+
                 <tr>
-                    <td>Tidak</td>
+                    <td>Tidak Ada</td>
                 </tr>
                 <tr>
-                    <td>Ya</td>
+                    <td>Ada</td>
                 </tr>
+                <tr>
+                    <td rowspan="3">8</td>
+                    <td rowspan="3">Kelompok Usaha</td>
+                    <td>Aktifitas Kelompok Usaha.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_8?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">9</td>
+                    <td rowspan="3">Koperasi </td>
+                    <td>Memiliki Koperasi.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_9 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">10</td>
+                    <td rowspan="3">Organisasi Perempuan</td>
+                    <td>Aktifitas Organisasi Perempuan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c2->_10 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+
 
                 <tr  style="background-color: lightblue">
-                    <td colspan="3"> Jumlah B2</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b2->sub_total_desa_b2?></td>
+                    <td colspan="3"> Jumlah C2</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c2->sub_total_desa_c2?></td>
                     <td>&nbsp;</td>
                 </tr>
+
+                <!-- ===========================PENILAIAN DESA C3============================== -->
                 <tr>
-                    <td colspan="5">III. INISIATIF DAN KREATIVITAS DALAM PEMBERDAYAAN MASYARAKAT</td>
+                    <td colspan="5">III. PEMBERDAYAAN KESEJAHTERAAN KELUARGA (PKK)</td>
                 </tr>
                 <tr>
-                    <td rowspan="18">1</td>
-                    <td rowspan="18">Inisiatif dan Kreatifitas</td>
-                    <td>a. Visi dan misi pemberdayaan masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_1 ?></td>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Lembaga PKK</td>
+                    <td>Keberadaan PKK.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c3->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2420,8 +2443,10 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>b. Kebijakan dalam rangka pemberdayaan masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_2 ?></td>
+                    <td rowspan="3">2</td>
+                    <td rowspan="3">Program PKK</td>
+                    <td>Realisasi 10 Program PKK.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c3->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2431,63 +2456,44 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>c. Eksistensi institusi pemberdayaan masyarakat dan aparatur.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_3 ?></td>
+                    <td rowspan="6">3</td>
+                    <td rowspan="6">Organisasi PKK</td>
+                    <td>Kelengkapan Kelompok Kerja.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c3->_3 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Tidak Ada</td>
+                    <td>Tidak Lengkap</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
+                    <td>Lengkap</td>
                 </tr>
                 <tr>
-                    <td>d. Alokasi anggaran untuk program pemberdayaan masyarakat dan aparatur desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_4 ?></td>
+                    <td>Kelengkapan Kelompok Kerja Dasawisma.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c3->_4 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Tidak Ada</td>
+                    <td>Tidak Lengkap</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
+                    <td>Lengkap</td>
                 </tr>
-                <tr>
-                    <td>e. Kebijakan pemerintah desa dalam pengentasan kemiskinan di pedesaan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_5 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>f. Alokasi anggaran untuk program pengentasan kemiskinan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b3->_6 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
+
                 <tr  style="background-color: lightblue">
-                    <td colspan="3"> Jumlah B3</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b3->sub_total_desa_b3?></td>
+                    <td colspan="3"> Jumlah C3</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c3->sub_total_desa_c3?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ===============================PENILAIAN B4===================================== -->
                 <tr>
-                    <td colspan="5">IV. BERBASIS TEKNOLOGI INFORMASI/E-GOVERNMENT</td>
+                    <td colspan="5">IV. KEAMANAN DAN KETERTIBAN</td>
                 </tr>
                 <tr>
-                    <td rowspan="6">1</td>
-                    <td rowspan="6">Ketersediaan sistem teknologi informasi berbasis internet</td>
-                    <td>a. Jaringan Internet.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_1 ?></td>
+                    <td rowspan="15">1</td>
+                    <td rowspan="15">Pengamanan Lingkungan dan Manusia</td>
+                    <td>a. Kerja sama pelestarian Lingkungan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2497,8 +2503,306 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>b. Website Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_2 ?></td>
+                    <td>b. Kerja sama pemantauan limbah perusahaan yang ada di desa.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_2 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>c. Kerja sama pendaur ulangan limbah.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_3 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>d. Petugas keamanan lingkungan (Linmas).</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_4 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>e. Pos kamling (Keamanan Lingkungan).</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_5 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="12">2</td>
+                    <td rowspan="12">Konflik SARA</td>
+                    <td>a. Konflik antar kelompok.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_6 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Konflik antar suku.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_7 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td>c. Konflik berbau agama/kepercayaan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_8 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td>b. Konflik antar RAS.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_9 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">3</td>
+                    <td rowspan="3">Perkelahian</td>
+                    <td>Kasus perkelahian yang menimbulkan korban dalam 2 tahun terkahir.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_10 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="6">4</td>
+                    <td rowspan="6">Pencurian dan Perampokan</td>
+                    <td>a. Kasus pencurian/perampokan biasa.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_11 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Kasus pencurian/perampokan dengan kekerasan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_12 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">5</td>
+                    <td rowspan="3">Perjudian</td>
+                    <td>Jumlah kasus perjudian dengan berbagai modus.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_13 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="6">6</td>
+                    <td rowspan="6">Narkoba</td>
+                    <td>a. Jumlah kasus narkoba dengan pelaku pemerintah desa.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_14 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Anggota masyarakat yang terkena narkoba.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_15 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">7</td>
+                    <td rowspan="3">Prostitusi</td>
+                    <td>Jumlah kasus prostitusi dengan berbagai modus.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_16 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="9">8</td>
+                    <td rowspan="9">Pembunuhan</td>
+                    <td>a. Jumlah kasus pembunuhan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_17 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Jumlah kasus pembunuhan yang korbannya penduduk desa setempat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_18 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>c. Jumlah kasus pembunuhan yang pelakunya penduduk desa setempat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_19 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">9</td>
+                    <td rowspan="3">Kekerasan Seksual</td>
+                    <td>Jumlah korban perkosaan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_20 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="6">10</td>
+                    <td rowspan="6">Kekerasan dalam Keluarga</td>
+                    <td>a. Kekerasan terhadap anak.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_21 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Kekerasan terhadap anggota keluarga lainnya.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_22 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3">11</td>
+                    <td rowspan="3">Penculikan</td>
+                    <td>Jumlah kasus penculikan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_23 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">12</td>
+                    <td rowspan="3">HIV/AIDS</td>
+                    <td>Kasus HIV/AIDS.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c4->_24 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr  style="background-color: lightblue">
+                    <td colspan="3"> Jumlah C4</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c4->sub_total_desa_c4?></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <!-- ================== PENILAIAN C5 ================= -->
+                <tr>
+                    <td colspan="5">V. PENDIDIKAN</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Buta Huruf</td>
+                    <td>Penduduk yang tidak bisa baca tulis.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2509,9 +2813,127 @@
                 </tr>
                 <tr>
                     <td rowspan="6">2</td>
-                    <td rowspan="6">Perangkat Komputer</td>
-                    <td>a. Software Dengan Spesifikasi Minimal  Untuk Operasi Jaringan Internet.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_3 ?></td>
+                    <td rowspan="6">Putus Sekolah</td>
+                    <td>a. Jumlah penduduk tidak tamat SD/sederajat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_2 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr>
+                    <td>b. Jumlah penduduk tidak tamat SLTP/sederajat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_3 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr>
+                    <td rowspan="12">3</td>
+                    <td rowspan="12">Tamat Sekolah</td>
+                    <td>a. Jumlah penduduk tamat SLTA/sederajat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_4 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr>
+                    <td>b. Jumlah penduduk tamat D3/Sarjana Muda.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_5 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr>
+                    <td>c. Jumlah penduduk tamat Sarjana/S1.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_6 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr>
+                    <td>b. Jumlah penduduk tamat Pasca Sarjana.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c5->_7?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+                <tr  style="background-color: lightblue">
+                    <td colspan="3"> Jumlah C5</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c5->sub_total_desa_c5?></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <!-- ================== PENILAIAN C6 ================= -->
+                <tr>
+                    <td colspan="5">VI. Kesehatan</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Kematian</td>
+                    <td>Jumlah kematian bayi.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_1 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Penurunan kurang dari 10% dari tahun sebelumnya</td>
+                </tr>
+                <tr>
+                    <td>Penurunan Diatas 10% dari tahun sebelumnya</td>
+                </tr>
+                <tr>
+                    <td rowspan="6">2</td>
+                    <td rowspan="6">Gizi dan Kematian Balita</td>
+                    <td>a. Jumlah balita gizi buruk.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_2 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Penurunan kurang dari 10% dari tahun sebelumnya</td>
+                </tr>
+                <tr>
+                    <td>Penurunan Diatas 10% dari tahun sebelumnya</td>
+                </tr>
+                <tr>
+                    <td>b. Jumlah balita meninggal.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_3 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Kurang dari 1%</td>
+                </tr>
+                <tr>
+                    <td>Lebih dari 1%</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="6">3</td>
+                    <td rowspan="6">Posyandu</td>
+                    <td>a. Keberadaan posyandu.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_4 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2521,8 +2943,117 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>b. Hardware Dengan Spesifikasi Minimal  Untuk Operasi Jaringan Internet .</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_4 ?></td>
+                    <td>b. Kelembagaan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_5 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Pratama</td>
+                </tr>
+                <tr>
+                    <td>Di atas Pratama</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="17">4</td>
+                    <td rowspan="17">Kepemilikan Jamban Dalam Rumah Tangga</td>
+                    <td>a. Jumlah RT Pengguna Sumber Air Lainnya.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_6 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Total RT Mempunyai Jamban/WC sendiri.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_7 ?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Menurun</td>
+                </tr>
+                <tr>
+                    <td>Tetap</td>
+                </tr>
+                <tr>
+                    <td>Meningkat</td>
+                </tr>
+                <tr>
+                    <td>c. Total RT yang tidak Mempunyai Jamban/WC sendiri.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_8 ?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Menurun</td>
+                </tr>
+                <tr>
+                    <td>Tetap</td>
+                </tr>
+                <tr>
+                    <td>Meningkat</td>
+                </tr>
+                <tr>
+                    <td>d. Total RT Pengguna MCK Umum.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_9 ?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Menurun</td>
+                </tr>
+                <tr>
+                    <td>Tetap</td>
+                </tr>
+                <tr>
+                    <td>Meningkat</td>
+                </tr>
+                <tr>
+                    <td>e. Total RT Pengguna MCK di Sungai/Kali.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_10 ?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Menurun</td>
+                </tr>
+                <tr>
+                    <td>Tetap</td>
+                </tr>
+                <tr>
+                    <td>Meningkat</td>
+                </tr>
+                <tr>
+                    <td>f. Total RT yang Tidak Mendapat Air Bersih.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_11 ?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Menurun</td>
+                </tr>
+                <tr>
+                    <td>Tetap</td>
+                </tr>
+                <tr>
+                    <td>Meningkat</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="9">5</td>
+                    <td rowspan="9">Fasilitas Kesehatan Lingkungan</td>
+                    <td>a. Puskesmas/Balai Pengobatan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_12 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Bidan/Mantri/Dokter.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_13 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2533,24 +3064,8 @@
                 </tr>
 
                 <tr>
-                    <td rowspan="31">3</td>
-                    <td rowspan="31">Administrasi</td>
-                    <td colspan="3">a. Administrasi Berbasis Teknologi Informasi.</td>
-                </tr>
-                <tr>
-                    <td>- Administrasi Umum.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_5 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Administrasi Kependudukan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_6 ?></td>
+                    <td>c. Jamban Keluarga/MCK.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_14 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2560,9 +3075,69 @@
                     <td>Ada</td>
                 </tr>
 
+                <tr  style="background-color: lightblue">
+                    <td colspan="3"> Jumlah C6</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c6->sub_total_desa_c6?></td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <!-- ================== PENILAIAN C7 ================= -->
                 <tr>
-                    <td>- Administrasi Keuangan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_7 ?></td>
+                    <td colspan="5">VII. EKONOMI</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Pengangguran</td>
+                    <td>Penduduk yang tidak bisa baca tulis.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c7->_1 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">2</td>
+                    <td rowspan="3">Mata Pencarian/Sumber Pendapatan</td>
+                    <td>Pertanian.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c7->_2 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Industri</td>
+                </tr>
+                <tr>
+                    <td>Jasa</td>
+                </tr>
+                <tr>
+                    <td rowspan="9">3</td>
+                    <td rowspan="9">Kelembagaan Ekonomi</td>
+                    <td>a. Pasar Tradisional.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c7->_3 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Toko/Kios.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c7->_4 ?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>c. Pangkalan Ojek, Becak, Delman, dan Sejenisnya.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c7->_5 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2572,9 +3147,20 @@
                     <td>Ada</td>
                 </tr>
 
+                <tr  style="background-color: lightblue">
+                    <td colspan="3"> Jumlah C7</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c7->sub_total_desa_c7?></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <!-- ================== PENILAIAN C8 ================= -->
                 <tr>
-                    <td>- Administrasi BPD.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_8 ?></td>
+                    <td colspan="5">VIII. PENANGGULANGAN KEMISKINAN</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">1</td>
+                    <td rowspan="3">Data Masyarakat Miskin</td>
+                    <td>Data Masyarakat Miskin.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c8->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2584,63 +3170,10 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>- Administrasi Pembangunan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_9 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Administrasi Lainnya.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_10 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>b. Perangkat yang mengelola Teknologi Informasi.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_11 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>c. Tersedia tokoh pemuda teknopreneur di tingkat RT/RW.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_12 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>d. Perpustakaan Online.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_13 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>e.Internet Gratis/Hotspot.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_14 ?></td>
+                    <td rowspan="3">2</td>
+                    <td rowspan="3">Program Penanggulangan Kemiskinan</td>
+                    <td>Program Penanggulangan Kemiskinan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c8->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2650,19 +3183,19 @@
                     <td>Ada</td>
                 </tr>
                 <tr  style="background-color: lightblue">
-                    <td colspan="3"> Jumlah B4</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b4->sub_total_desa_b4?></td>
+                    <td colspan="3"> Jumlah C8</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c8->sub_total_desa_c8?></td>
                     <td>&nbsp;</td>
                 </tr>
-                <!-- ================== PENILAIAN B5 ================= -->
+                <!-- ================== PENILAIAN C9 ================= -->
                 <tr>
-                    <td colspan="5">V. PELESTARIAN ADAT DAN BUDAYA</td>
+                    <td colspan="5">IX. PENINGKATAN KAPASITAS MASYARAKAT</td>
                 </tr>
                 <tr>
-                    <td rowspan="15">1</td>
-                    <td rowspan="15">Pelestarian Adat dan Budaya</td>
-                    <td>a. Pembinaan Partisipasi Masyarakat dalam Pelestarian Adat dan Budaya.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b5->_1 ?></td>
+                    <td rowspan="6">1</td>
+                    <td rowspan="6">Analisis Kebutuhan</td>
+                    <td>a. Penyusunan Analisis Kebutuhan Peningkatan Kapasitas Masyarakat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c9->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -2672,58 +3205,38 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>b. Keterlibatan Kelembagaan Adat dalam Pelestarian Adat dan Budaya.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b5->_2 ?></td>
+                    <td>b. Banyaknya Kegiatan Dalam Peningkatan Kapasitas Masyarakat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c9->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Tidak Ada</td>
+                    <td>1-3</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
+                    <td>Lebih dari 3</td>
                 </tr>
                 <tr>
-                    <td>c. Pembinaan Seni Budaya Setempat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b5->_3 ?></td>
+                    <td rowspan="3">2</td>
+                    <td rowspan="3">Pelaksanaan Program</td>
+                    <td>Jumlah Jenis Program Peningkatan Kapasitas Masyarakat.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c9->_3 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Tidak Ada</td>
+                    <td>1-3</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>d. Kebijakan Menjaga Kelestarian.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b5->_4 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>e. Alokasi Anggaran Pelestarian.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b5->_5 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr  style="background-color: lightblue">
-                    <td colspan="3"> Jumlah B5</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b5->sub_total_desa_b5?></td>
-                    <td>&nbsp;</td>
+                    <td>Lebih dari 3</td>
                 </tr>
 
+                <tr  style="background-color: lightblue">
+                    <td colspan="3"> Jumlah C9</td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c9->sub_total_desa_c9?></td>
+                    <td>&nbsp;</td>
+                </tr>
                 <tr  style="background-color: cornflowerblue">
                     <td colspan="3" style="color: white"> Total Penilaian Pemerintahan</td>
-                    <td class="font-600 text-center" style="font-size: xx-large; color: #ffffff;"><?= $penilaianPemerintahan->sub_total_pemerintahan?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large; color: #ffffff;"><?= $penilaianKemasyarakatan->sub_total_masyarakat?></td>
                     <td>&nbsp;</td>
                 </tr>
                 </tbody>
