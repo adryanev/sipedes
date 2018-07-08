@@ -121,4 +121,23 @@ class PenilaianDesa extends \yii\db\ActiveRecord
             + $this->getPenilaianMasyarakatDesas()->one()->sub_total_masyarakat;
         return $total;
     }
+
+    public function getPerkembangan(){
+        $total = $this->totalNilai();
+        $text = '';
+        if($total == 0){
+            $text= 'Belum di nilai';
+        }
+        elseif($total >=451 ){
+            $text = 'Cepat Berkembang';
+        }
+        elseif ($total >=301 && $total<=450){
+            $text = 'Berkembang';
+        }
+        elseif($total <=300){
+            $text = 'Kurang Berkembang';
+        }
+
+        return $text;
+    }
 }

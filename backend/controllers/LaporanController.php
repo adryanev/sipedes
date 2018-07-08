@@ -36,15 +36,47 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Json;
 use yii\helpers\VarDumper;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class LaporanController extends \yii\web\Controller
 {
+
+
+     public function actionLaporanKabDesa($idKabupaten,$tahun,$jenis){
+
+         $kab = HtmlPurifier::process($idKabupaten);
+         $kabupaten = Kabupaten::findOne($kab);
+         $thn = HtmlPurifier::process($tahun);
+         $jn = HtmlPurifier::process($jenis);
+         $kec = $kabupaten->kecamatans;
+         $structure = $kec;
+         $desa = null;
+         if($jn === 'desa'){
+
+             foreach ($kec as $k){
+                 $desa = $k->desas;
+//                 $structure = $desa;
+
+             }
+         }
+         elseif ($jn === 'kelurahan'){
+             $kelurahan = [];
+         }
+         else{
+             throw new NotFoundHttpException("Yang anda cara tidak ada");
+         }
+
+
+
+
+         return $this->render('laporan-kabupaten',['kab'=>$kabupaten, 'desa'=>$desa,'struktur'=>$structure]);
+     }
     public function actionIndex()
     {
-
-        $dataProvinsi = Provinsi::getProvinsiAsMap();;
-        return $this->render('index',['provinsi'=>$dataProvinsi]);
+        $dataProvinsi = Provinsi::getProvinsiAsMap();
+        $dataKabupaten = Kabupaten::getKabupatenAsMap();
+        return $this->render('index',['provinsi'=>$dataProvinsi,'kabupaten'=>$dataKabupaten]);
     }
 
     public function actionLaporanDesa($idDesa,$tahun){

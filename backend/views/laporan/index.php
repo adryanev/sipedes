@@ -1,7 +1,62 @@
 <?php
 /* @var $this yii\web\View */
 ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-box">
 
+                <h4 class="header-title m-t-0 m-b-30">Laporan Per Kabupaten</h4>
+
+
+                <?php \yii\bootstrap\ActiveForm::begin()?>
+                <?= \kartik\select2\Select2::widget([
+                    'data'=>$kabupaten,
+                    'name'=>'id_kabupaten_lap_kab',
+                    'id'=>'id_kabupaten_lap_kab',
+                    'options'=>['placeholder'=>'Pilih Kabupaten']
+                ])?>
+
+               <?= \kartik\select2\Select2::widget([
+                       'data'=>['desa'=>'Desa','kelurahan'=>'Kelurahan'],
+                   'name'=>'jenis',
+                   'id'=>'jenis',
+                   'options'=>['placeholder'=>'Pilih Jenis Laporan']
+               ]) ?>
+
+                <?=
+                \kartik\date\DatePicker::widget([
+                    'options'=>['placeholder'=>'Pilih tahun laporan'],
+                    'type'=> \kartik\date\DatePicker::TYPE_INPUT,
+                    'id'=>'tahun_lap_kab','name'=>'tahun_laporan',
+                    'pluginOptions'=>[
+                        'autoclose'=>true,
+                        'startView'=>'years',
+                        'minViewMode'=>'years',
+                        'format'=> 'yyyy'
+                    ]
+
+
+                ])
+                ?>
+
+                <?php \yii\bootstrap\ActiveForm::end()?>
+
+                <div id="pilih-kab">
+
+                </div>
+
+                <br>
+                <div class="clearfix"></div>
+
+
+                <?php \yii\widgets\Pjax::begin()?>
+                <?php \yii\widgets\Pjax::end()?>
+
+
+            </div>
+        </div><!-- end col -->
+
+    </div>
 <div class="row">
     <div class="col-lg-12">
         <div class="card-box">
@@ -91,6 +146,7 @@
 
 <?php
 $url = \yii\helpers\Url::toRoute(['laporan/laporan-desa']);
+$urlKab = \yii\helpers\Url::to(['laporan/laporan-kab-desa']);
 $js = <<<JS
     const desa = $('#id_desa');
 const tahun = $('#tahun_laporan');
@@ -102,7 +158,15 @@ const tahun = $('#tahun_laporan');
             divDesa.html('<a href="{$url}?idDesa='+desa.val()+'&tahun='+tahun.val()+'" class="btn btn-primary"> Pilih </a>');
         }
     });
+    
+    const kabupaten = $('#id_kabupaten_lap_kab');
+    let jenis = $('#jenis');
+    const tahunLapKab = $('#tahun_lap_kab');
+    const divKab = $('#pilih-kab');
   
+    tahunLapKab.on('change',()=>{
+           divKab.html('<a href="{$urlKab}?idKabupaten='+kabupaten.val()+'&tahun='+tahunLapKab.val()+'&jenis='+jenis.val()+'" class="btn btn-primary"> Pilih </a>');
+    });
 JS;
 
 $this->registerJS($js);

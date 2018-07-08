@@ -2955,8 +2955,8 @@
                 </tr>
 
                 <tr>
-                    <td rowspan="17">4</td>
-                    <td rowspan="17">Kepemilikan Jamban Dalam Rumah Tangga</td>
+                    <td rowspan="23">4</td>
+                    <td rowspan="23">Kepemilikan Jamban Dalam Rumah Tangga</td>
                     <td>a. Jumlah RT Pengguna Sumber Air Lainnya.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c6->_6 ?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -3244,5 +3244,14 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="header-title m-t-0 m-b-30">Kesimpulan Penilaian Desa <?= $desa->nama_desa?></h4>
 
-
+            <p>Jumlah Totak Seluruh Bidang : <?= $penilaianDesa->totalNilai()?></p>
+            <p>Tingkat Perkembangan Desa : <?= $penilaianDesa->getPerkembangan()?> </p>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
