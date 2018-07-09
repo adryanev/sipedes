@@ -366,29 +366,29 @@ class m180708_175406_create_tabel_jawaban_kelurahan extends Migration
         $this->createIndex('idx-penilaian_kelurahan','{{%penilaian_kelurahan}}',['id','id_kelurahan']);
 
         $this->addForeignKey('fk-penilaian_id_kelurahan','{{%penilaian_kelurahan}}','id_kelurahan','{{%kelurahan}}','id_kelurahan','RESTRICT','CASCADE');
-        $this->addForeignKey('fk-penilaian_wilayah_id_penilaian','{{%penilaian_wilayah_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk-penilaian_pemerintahan_id_penilaian','{{%penilaian_pemerintahan_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk-penilaian_masyarakat_id_penilaian','{{%penilaian_masyarakat_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-a1_id','penilaian_kelurahan_a1','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-a2_id','penilaian_kelurahan_a2','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-a3_id','penilaian_kelurahan_a3','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-a4_id','penilaian_kelurahan_a4','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-a5_id','penilaian_kelurahan_a5','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-b1_id','penilaian_kelurahan_b1','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-b2_id','penilaian_kelurahan_b2','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-b3_id','penilaian_kelurahan_b3','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-b4_id','penilaian_kelurahan_b4','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-b5_id','penilaian_kelurahan_b5','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c1_id','penilaian_kelurahan_c1','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c2_id','penilaian_kelurahan_c2','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c3_id','penilaian_kelurahan_c3','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c4_id','penilaian_kelurahan_c4','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c5_id','penilaian_kelurahan_c5','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c6_id','penilaian_kelurahan_c6','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c7_id','penilaian_kelurahan_c7','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c8_id','penilaian_kelurahan_c8','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_a1_penilaian-c9_id','penilaian_kelurahan_c9','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
-        $this->addForeignKey('fk_penilaian_penilai','penilaian_kelurahan','penilai','user','id','SET NULL','CASCADE');
+        $this->addForeignKey('fk-penilaian_wilayah_id_penilaian_kelurahan','{{%penilaian_wilayah_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk-penilaian_pemerintahan_id_penilaian_kelurahan','{{%penilaian_pemerintahan_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk-penilaian_masyarakat_id_penilaian_kelurahan','{{%penilaian_masyarakat_kelurahan}}','id_penilaian_kelurahan','{{%penilaian_kelurahan}}','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-a1_id','penilaian_kelurahan_a1','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-a2_id','penilaian_kelurahan_a2','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-a3_id','penilaian_kelurahan_a3','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-a4_id','penilaian_kelurahan_a4','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-a5_id','penilaian_kelurahan_a5','id_penilaian_wilayah_kelurahan','penilaian_wilayah_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-b1_id','penilaian_kelurahan_b1','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-b2_id','penilaian_kelurahan_b2','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-b3_id','penilaian_kelurahan_b3','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-b4_id','penilaian_kelurahan_b4','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-b5_id','penilaian_kelurahan_b5','id_penilaian_pemerintahan_kelurahan','penilaian_pemerintahan_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c1_id','penilaian_kelurahan_c1','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c2_id','penilaian_kelurahan_c2','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c3_id','penilaian_kelurahan_c3','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c4_id','penilaian_kelurahan_c4','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c5_id','penilaian_kelurahan_c5','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c6_id','penilaian_kelurahan_c6','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c7_id','penilaian_kelurahan_c7','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c8_id','penilaian_kelurahan_c8','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_a1_penilaiankelurahan-c9_id','penilaian_kelurahan_c9','id_penilaian_kemasyarakatan_kelurahan','penilaian_masyarakat_kelurahan','id','RESTRICT','CASCADE');
+        $this->addForeignKey('fk_penilaian_penilai_kelurahan','penilaian_kelurahan','penilai','user','id','SET NULL','CASCADE');
 
 
     }
