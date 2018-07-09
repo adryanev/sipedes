@@ -98,4 +98,13 @@ class PenilaianWilayahKelurahan extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianKelurahan::className(), ['id' => 'id_penilaian_kelurahan']);
     }
+
+    public function subTotalWilayah(){
+        $this->sub_total_wilayah =
+            $this->getPenilaianKelurahanA3s()->one()['sub_total_kelurahan_a3']
+            +$this->getPenilaianKelurahanA4s()->one()['sub_total_kelurahan_a4']
+            +$this->getPenilaianKelurahanA5s()->one()['sub_total_kelurahan_a5'];
+
+        return $this->sub_total_wilayah;
+    }
 }

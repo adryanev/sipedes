@@ -68,4 +68,15 @@ class PenilaianKelurahanC5 extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianMasyarakatKelurahan::className(), ['id' => 'id_penilaian_kemasyarakatan_kelurahan']);
     }
+    public function sumC5(){
+        $sumC5 = $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4
+            +$this->_5
+            +$this->_6
+            +$this->_7;
+        $this->sub_total_kelurahan_c5 = $sumC5;
+        return $sumC5;
+    }
 }

@@ -82,4 +82,23 @@ class PenilaianKelurahanB4 extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianPemerintahanKelurahan::className(), ['id' => 'id_penilaian_pemerintahan_kelurahan']);
     }
+
+    public function sumB4(){
+        $sumB4 = $this->_1
+            + $this->_2
+            + $this->_3
+            + $this->_4
+            + $this->_5
+            + $this->_6
+            + $this->_7
+            + $this->_8
+            + $this->_9
+            + $this->_10
+            + $this->_11
+            + $this->_12
+            + $this->_13
+            + $this->_14;
+        $this->sub_total_kelurahan_b4 = $sumB4;
+        return $sumB4;
+    }
 }

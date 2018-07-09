@@ -134,4 +134,19 @@ class PenilaianMasyarakatKelurahan extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianKelurahan::className(), ['id' => 'id_penilaian_kelurahan']);
     }
+
+    public function subTotalMasyarakatKelurahan(){
+        $this->sub_total_masyarakat =
+            $this->getPenilaianKelurahanC1s()->one()['sub_total_kelurahan_c1']
+            +$this->getPenilaianKelurahanC2s()->one()['sub_total_kelurahan_c2']
+            +$this->getPenilaianKelurahanC3s()->one()['sub_total_kelurahan_c3']
+            +$this->getPenilaianKelurahanC4s()->one()['sub_total_kelurahan_c4']
+            +$this->getPenilaianKelurahanC5s()->one()['sub_total_kelurahan_c5']
+            +$this->getPenilaianKelurahanC6s()->one()['sub_total_kelurahan_c6']
+            +$this->getPenilaianKelurahanC7s()->one()['sub_total_kelurahan_c7']
+            +$this->getPenilaianKelurahanC8s()->one()['sub_total_kelurahan_c8']
+            +$this->getPenilaianKelurahanC9s()->one()['sub_total_kelurahan_c9'];
+
+        return $this->sub_total_masyarakat;
+    }
 }

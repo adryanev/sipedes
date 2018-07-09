@@ -99,4 +99,30 @@ class PenilaianKelurahan extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PenilaianWilayahKelurahan::className(), ['id_penilaian_kelurahan' => 'id']);
     }
+
+
+    public function getTotalNilai(){
+        $total = $this->getPenilaianWilayahKelurahans()->one()->sub_total_wilayah+ $this->getPenilaianPemerintahanKelurahans()->one()->sub_total_pemerintahan + $this->getPenilaianMasyarakatKelurahans()->one()->sub_total_masyarakat;
+
+        return $total;
+    }
+
+    public function getPerkembangan(){
+        $total = $this->getTotalNilai();
+        $text = '';
+        if($total === 0){
+            $text = 'Belum di Nilai';
+        }
+        elseif ($total >= 451){
+            $text = 'Cepat Berkembang';
+        }
+        elseif( $total >=301 && $total <=450){
+            $text = 'Berkembang';
+        }
+        elseif( $total <= 300){
+            $text = "Kurang Berkembang";
+        }
+        return $text;
+    }
+
 }

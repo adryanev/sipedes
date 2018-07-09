@@ -98,4 +98,15 @@ class PenilaianPemerintahanKelurahan extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianKelurahan::className(), ['id' => 'id_penilaian_kelurahan']);
     }
+
+    public function subTotalPemerintahanKeluarahan(){
+        $this->sub_total_pemerintahan =
+            $this->getPenilaianKelurahanB1s()->one()['sub_total_kelurahan_b1']
+            +$this->getPenilaianKelurahanB2s()->one()['sub_total_kelurahan_b2']
+            +$this->getPenilaianKelurahanB3s()->one()['sub_total_kelurahan_b3']
+            +$this->getPenilaianKelurahanB4s()->one()['sub_total_kelurahan_b4']
+            +$this->getPenilaianKelurahanB5s()->one()['sub_total_kelurahan_b5'];
+        return $this->sub_total_pemerintahan;
+    }
+
 }

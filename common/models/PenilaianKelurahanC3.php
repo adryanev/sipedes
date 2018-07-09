@@ -62,4 +62,14 @@ class PenilaianKelurahanC3 extends \yii\db\ActiveRecord
     {
         return $this->hasOne(PenilaianMasyarakatKelurahan::className(), ['id' => 'id_penilaian_kemasyarakatan_kelurahan']);
     }
+
+    public function sumC3(){
+        $sumC3 = $this->_1
+            +$this->_2
+            +$this->_3
+            +$this->_4;
+        $this->sub_total_kelurahan_c3 = $sumC3;
+        return $sumC3;
+
+    }
 }
