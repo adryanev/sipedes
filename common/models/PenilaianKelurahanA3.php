@@ -147,7 +147,7 @@ class PenilaianKelurahanA3 extends \yii\db\ActiveRecord
             +$this->_28
             +$this->_29
             +$this->_30;
-        $this->sub_total_desa_a3 = $sumA3;
+        $this->sub_total_kelurahan_a3 = $sumA3;
         return $sumA3;
     }
 }

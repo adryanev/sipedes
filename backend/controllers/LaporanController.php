@@ -26,9 +26,32 @@ use common\models\PenilaianDesaC6;
 use common\models\PenilaianDesaC7;
 use common\models\PenilaianDesaC8;
 use common\models\PenilaianDesaC9;
+use common\models\PenilaianKelurahan;
+use common\models\PenilaianKelurahanA1;
+use common\models\PenilaianKelurahanA2;
+use common\models\PenilaianKelurahanA3;
+use common\models\PenilaianKelurahanA4;
+use common\models\PenilaianKelurahanA5;
+use common\models\PenilaianKelurahanB1;
+use common\models\PenilaianKelurahanB2;
+use common\models\PenilaianKelurahanB3;
+use common\models\PenilaianKelurahanB4;
+use common\models\PenilaianKelurahanB5;
+use common\models\PenilaianKelurahanC1;
+use common\models\PenilaianKelurahanC2;
+use common\models\PenilaianKelurahanC3;
+use common\models\PenilaianKelurahanC4;
+use common\models\PenilaianKelurahanC5;
+use common\models\PenilaianKelurahanC6;
+use common\models\PenilaianKelurahanC7;
+use common\models\PenilaianKelurahanC8;
+use common\models\PenilaianKelurahanC9;
 use common\models\PenilaianMasyarakatDesa;
+use common\models\PenilaianMasyarakatKelurahan;
 use common\models\PenilaianPemerintahanDesa;
+use common\models\PenilaianPemerintahanKelurahan;
 use common\models\PenilaianWilayahDesa;
+use common\models\PenilaianWilayahKelurahan;
 use common\models\Provinsi;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -56,12 +79,17 @@ class LaporanController extends \yii\web\Controller
 
              foreach ($kec as $k){
                  $desa = $k->desas;
-//                 $structure = $desa;
+//                  $structure = $desa;
 
              }
          }
          elseif ($jn === 'kelurahan'){
-             $kelurahan = [];
+             foreach ($kec as $k){
+                 $desa = $k->kelurahans;
+//                  $structure = $desa;
+
+             }
+
          }
          else{
              throw new NotFoundHttpException("Yang anda cara tidak ada");
@@ -78,6 +106,63 @@ class LaporanController extends \yii\web\Controller
         $dataKabupaten = Kabupaten::getKabupatenAsMap();
         return $this->render('index',['provinsi'=>$dataProvinsi,'kabupaten'=>$dataKabupaten]);
     }
+
+    public function actionLaporanKelurahan($idKelurahan,$tahun){
+        $kel = HtmlPurifier::process($idKelurahan);
+        $kelurahan = Kelurahan::find()->where(['id_kelurahan'=>$kel])->one();
+        $thn = HtmlPurifier::process($tahun);
+        $penKel = PenilaianKelurahan::find()->where(['id_kelurahan'=>$kel,'tahun_penilaian'=>$thn])->one();
+        $penilaianWilayah= PenilaianWilayahKelurahan::find()->where(['id_penilaian_Kelurahan'=>$penKel->id])->one();
+        $penilaianPemerintahan = PenilaianPemerintahanKelurahan::find()->where(['id_penilaian_Kelurahan'=>$penKel->id])->one();
+        $penilaianKemasyarakatan = PenilaianMasyarakatKelurahan::find()->where(['id_penilaian_kelurahan'=>$penKel->id])->one();
+        $a1 = PenilaianKelurahanA1::find()->where(['id_penilaian_wilayah_kelurahan'=>$penilaianWilayah->id])->one();
+        $a2 = PenilaianKelurahanA2::find()->where(['id_penilaian_wilayah_kelurahan'=>$penilaianWilayah->id])->one();
+        $a3 = PenilaianKelurahanA3::find()->where(['id_penilaian_wilayah_kelurahan'=>$penilaianWilayah->id])->one();
+        $a4 = PenilaianKelurahanA4::find()->where(['id_penilaian_wilayah_kelurahan'=>$penilaianWilayah->id])->one();
+        $a5 = PenilaianKelurahanA5::find()->where(['id_penilaian_wilayah_kelurahan'=>$penilaianWilayah->id])->one();
+        $b1 = PenilaianKelurahanB1::find()->where(['id_penilaian_pemerintahan_kelurahan'=>$penilaianPemerintahan->id])->one();
+        $b2 = PenilaianKelurahanB2::find()->where(['id_penilaian_pemerintahan_kelurahan'=>$penilaianPemerintahan->id])->one();
+        $b3 = PenilaianKelurahanB3::find()->where(['id_penilaian_pemerintahan_kelurahan'=>$penilaianPemerintahan->id])->one();
+        $b4 = PenilaianKelurahanB4::find()->where(['id_penilaian_pemerintahan_kelurahan'=>$penilaianPemerintahan->id])->one();
+        $b5 = PenilaianKelurahanB5::find()->where(['id_penilaian_pemerintahan_kelurahan'=>$penilaianPemerintahan->id])->one();
+        $c1 = PenilaianKelurahanC1::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c2 = PenilaianKelurahanC2::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c3 = PenilaianKelurahanC3::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c4 = PenilaianKelurahanC4::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c5 = PenilaianKelurahanC5::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c6 = PenilaianKelurahanC6::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c7 = PenilaianKelurahanC7::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c8 = PenilaianKelurahanC8::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+        $c9 = PenilaianKelurahanC9::find()->where(['id_penilaian_kemasyarakatan_kelurahan'=>$penilaianKemasyarakatan->id])->one();
+
+        return $this->render('laporan-kelurahan',[
+            'kelurahan'=>$kelurahan,
+            'penilaianKelurahan'=>$penKel,
+            'penilaianWilayah'=>$penilaianWilayah,
+            'penilaianPemerintahan'=>$penilaianPemerintahan,
+            'penilaianKemasyarakatan'=>$penilaianKemasyarakatan,
+            'a1'=>$a1,
+            'a2'=>$a2,
+            'a3'=>$a3,
+            'a4'=>$a4,
+            'a5'=>$a5,
+            'b1'=>$b1,
+            'b2'=>$b2,
+            'b3'=>$b3,
+            'b4'=>$b4,
+            'b5'=>$b5,
+            'c1'=>$c1,
+            'c2'=>$c2,
+            'c3'=>$c3,
+            'c4'=>$c4,
+            'c5'=>$c5,
+            'c6'=>$c6,
+            'c7'=>$c7,
+            'c8'=>$c8,
+            'c9'=>$c9,
+        ]);
+    }
+
 
     public function actionLaporanDesa($idDesa,$tahun){
 
@@ -173,13 +258,23 @@ class LaporanController extends \yii\web\Controller
         }
         echo Json::encode(['output'=>'','selected'=>'']);
     }
-    public function actionGetKelurahan($idKecamatan){
-        Yii::$app->response->format = Response::FORMAT_JSON;
-        $idKec = HtmlPurifier::process($idKecamatan);
-        $kel = Kelurahan::find()->where(['id_kecamatan'=>$idKec])->all();
-        $dataKel = ArrayHelper::map($kel,'id_kelurahan','nama_kelurahan');
+    public function actionGetKelurahan(){
+        $out = [];
+        if(isset($_POST['depdrop_parents'])){
+            $ids = $_POST['depdrop_parents'];
+            $idProv = empty($ids) ? null : $ids[0];
+            $idKab = empty($ids)? null :  $ids[1];
+            $idKec = empty($ids) ? null : $ids[2];
 
-        return $dataKel;
+            if($idKec != null){
+                $des = Kelurahan::find()->select(['id_kelurahan as id', 'nama_kelurahan as name'])->where(['id_kecamatan'=>$idKec])->asArray()->all();
+                echo Json::encode(['output'=>$des,'selected' => '']);
+                return;
+            }
+
+        }
+
+        echo Json::encode(['output'=>'','selected'=>'']);
     }
 
     public function actionGetDesa(){
