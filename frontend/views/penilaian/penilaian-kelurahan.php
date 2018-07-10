@@ -112,7 +112,7 @@ $i = 1;
                         <div class="row">
                             <h4 class="info-text">Silahkan isi Form A1 Berikut</h4>
                             <div class="col-md-12">
-                                <?=$form->field($penilaianKelurahan,'id_desa')->hiddenInput(['readonly'=>true,'value'=>$kelurahan->id_kelurahan])->label('')?>
+                                <?=$form->field($penilaianKelurahan,'id_kelurahan')->hiddenInput(['readonly'=>true,'value'=>$kelurahan->id_kelurahan])->label('')?>
                                 <?=$form->field($penilaianKelurahan,'tahun_penilaian')->textInput(['value'=> date('Y')])?>
                                 <?=$form->field($a1,'nama')->textInput(['readonly'=>true,'value'=>$kelurahan->nama_kelurahan])?>
                                 <?=$form->field($a1,'kode')->textInput(['readonly'=>true,'value'=>$kelurahan->id_kelurahan])?>
@@ -143,7 +143,7 @@ $i = 1;
                                 <?=$form->field($a2,'batas')->dropDownList([
                                     'Tidak Ada'=> 'Tidak Ada',
                                     'Ada'=> 'Ada'
-                                ])->label('Batas Desa')?>
+                                ])->label('Batas Kelurahan')?>
                                 <?=$form->field($a2,'penetapan_batas')->dropDownList([
                                     'Tidak Ada'=>'Tidak Ada',
                                     'Ada'=>'Ada'

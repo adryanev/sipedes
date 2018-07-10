@@ -44,7 +44,7 @@ $year = date('Y');
         <div class="card widget-user">
             <div class="card-content">
                 <div class="text-center">
-                    <h2 class="text-success" data-plugin="counterup">1599</h2>
+                    <h2 class="text-success" data-plugin="counterup"><?=\common\models\PenilaianDesa::find()->where(['tahun_penilaian'=>$year])->count()?></h2>
                     <h5>Penilaian Desa <?=date('Y')?></h5>
                 </div>
             </div>
@@ -57,7 +57,7 @@ $year = date('Y');
         <div class="card widget-user">
             <div class="card-content">
                 <div class="text-center">
-                    <h2 class="text-danger" data-plugin="counterup">82</h2>
+                    <h2 class="text-danger" data-plugin="counterup"><?= \common\models\PenilaianKelurahan::find()->where(['tahun_penilaian'=>$year])->count() ?></h2>
                     <h5>Penilaian Kelurahan <?=date('Y')?></h5>
                 </div>
             </div>

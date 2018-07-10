@@ -36,7 +36,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
-            <h4 class="header-title m-t-0 m-b-30">Laporan Penilaian Kelurahan <?= $kelurahan->nama_desa?></h4>
+            <h4 class="header-title m-t-0 m-b-30">Laporan Penilaian Kelurahan <?= $kelurahan->nama_kelurahan?></h4>
 
             <p>Tahun&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $penilaianKelurahan->tahun_penilaian?></p>
             <p>Nama Tim Penilai&emsp;: <?= $penilaianKelurahan->getPenilai()->one()->nama?></p>
@@ -71,7 +71,7 @@
                 <tbody>
 
                 <tr>
-                    <td colspan="5">I. Identitas Desa</td>
+                    <td colspan="5">I. Identitas Kelurahan</td>
 
                 </tr>
                 <tr>
@@ -329,7 +329,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>e. Jejaring Kerjasama dengan pihak ketiga dalam  pemasaran produk inovasi.</td>
+                    <td>e. Jejaring Kerjasama dengan pihak ketiga dalam pemasaran produk inovasi.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $a3->_12?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -539,7 +539,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>g.   Adanya Kepemimpinan dan Visi Bersama dalam mengembangkan dan mengelola potensi Desa dan Kelurahan.</td>
+                    <td>g. Adanya Kepemimpinan dan Visi Bersama dalam mengembangkan dan mengelola potensi Desa dan Kelurahan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $a3->_30 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -551,7 +551,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah A3</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a3->sub_total_desa_a3?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a3->sub_total_kelurahan_a3?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -690,7 +690,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah A4</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a4->sub_total_desa_a4?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a4->sub_total_kelurahan_a4?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -742,20 +742,9 @@
                 <tr>
                     <td>Ada</td>
                 </tr>
-                <tr>
-                    <td>e. Mengurangi jumlah kepemilikan Tanah Desa/Tanah Kas Desa (Khusus Diisi Oleh Desa).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $a5->_5 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah A5</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a5->sub_total_desa_a5?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $a5->sub_total_kelurahan_a5?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr  style="background-color: cornflowerblue">
@@ -793,47 +782,53 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td colspan="5" class="text-uppercase">I. PEMERINTAHAN DESA</td>
+                    <td rowspan="89">1</td>
+                    <td rowspan="89">Sarana Prasarana</td>
+                    <td>a. Gedung Kantor.</td>
+                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_1?></td>
+                    <td rowspan="5">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td rowspan="68">1</td>
-                    <td rowspan="68">Musyawarah Desa</td>
-                    <td>a. Pelaksanaan Musyawarah Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_1?></td>
-                    <td rowspan="3">&nbsp;</td>
+                    <td>Ada, Di rumah pribadi</td>
+                </tr>
+                <tr>
+                    <td>Ada, Sewa</td>
+                </tr>
+                <tr>
+                    <td>Ada, Milik Pemda semipermanen</td>
+                </tr>
+                <tr>
+                    <td>Ada, Milik Pemda permanen</td>
+                </tr>
+                <tr>
+                    <td>b. Gedung Pertemuan.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_2?></td>
+                    <td rowspan="4">&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Tidak Ada</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr><td colspan="3">b. Peserta Musyawarah Desa:</td>
+                    <td>Ada, Milik Pemda semipermanen</td>
                 </tr>
                 <tr>
-                    <td>- Keterwakilan unsur masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_2?></td>
-                    <td rowspan="3">&nbsp;</td>
+                    <td>Ada, Milik Pemda permanen</td>
                 </tr>
+
                 <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Keterwakilan unsur Pemerintah Desa.</td>
+                    <td colspan="4">c. Perangkat Kelurahan</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_3?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Tidak Ada</td>
+                    <td>50% Bukan PNS</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
+                    <td>Di atas 50% PNS</td>
                 </tr>
+
                 <tr>
-                    <td>- Keterwakilan Badan Permusyawarahan Desa.</td>
+                    <td>d. Mesin Tik/Komputer.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_4?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -843,36 +838,33 @@
                 <tr>
                     <td>Ada</td>
                 </tr>
+
                 <tr>
-                    <td>- Waktu pelaksanaan Musyawarah Perencanaan Pembangunan Desa.</td>
+                    <td>e. Kendaraan Dinas Lurah.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_5?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Setelah bulan Juni tahun berjalan.</td>
-                </tr>
+                    <td>Tidak Stabil</td>
                 </tr>
                 <tr>
-                    <td>Sampai dengan bulan Juni tahun berjalan.</td>
+                    <td>Stabil</td>
                 </tr>
 
                 <tr>
-                    <td colspan="3">c. Materi yang dibahas di Musyawarah Desa apa saja:
-                    </td>
-                </tr>
-                <tr>
-                    <td>- Penataan Desa</td>
+                    <td>f. Struktur Organisasi.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_6?></td>
-                    <td rowspan="3">&nbsp;</td></tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
+                    <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Ada</td>
+                    <td>Tidak Stabil</td>
                 </tr>
                 <tr>
-                    <td>- Perencanaan Pembangunan Desa.</td>
+                    <td>Stabil</td>
+                </tr>
+
+                <tr>
+                    <td>g. Jaringan Listrik.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_7?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -882,65 +874,10 @@
                 <tr>
                     <td>Ada</td>
                 </tr>
+
                 <tr>
-                    <td>- Peraturan Desa tentang RPJMDesa.</td>
+                    <td>h. Sumber Daya Listrik (PLN).</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_8?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Peraturan Desa tentang RKPDesa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_9?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Peraturan Desa tentang APBDesa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_10?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr><td colspan="3">- Kerjasama Desa:</td></tr>
-                <tr>
-                    <td>1) Kerjasama antar Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_11?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>2) Kerjasama dengan pihak ketiga.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_12?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr><td colspan="3">- Pembentukan BUMDesa:</td></tr>
-                <tr>
-                    <td>1)	Peraturan Desa tentang Pembentukan BUMDesa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_13?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -951,7 +888,71 @@
                 </tr>
 
                 <tr>
-                    <td>2) Penyertaan modal BUMDesa.</td>
+                    <td>i. Sumber Daya Listrik (NON-PLN).</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_9?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td>j. Perpustakaan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_10?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="4">2</td>
+                    <td rowspan="4">Akuntabilitas</td>
+                    <td>Kotak Pengaduan Masyarakat.</td>
+                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_11?></td>
+                    <td rowspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada, tapi tidak dimanfaatkan</td>
+                </tr>
+                <tr>
+                    <td>Ada dan dimanfaatkan.</td>
+                </tr>
+                <tr>
+                    <td rowspan="37">4</td>
+                    <td rowspan="37">Administrasi</td>
+                    <td>a. Laporan Kinerja Tahunan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_12?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>b. Laporan Tahunan Lurah.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_13?></td>
+                    <td rowspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Tidak Ada</td>
+                </tr>
+                <tr>
+                    <td>Ada</td>
+                </tr>
+                <tr>
+                    <td>c. Papan Informasi Pelayanan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_14?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -962,7 +963,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>3) AD/ART.</td>
+                    <td>d. Loket Pelayanan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_15?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -973,7 +974,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>4) Rapat pertanggungjawaban.</td>
+                    <td>e. Buku Registrasi Pelayanan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_16?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -984,7 +985,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>5) Aturan terkait dengan kepailitan.</td>
+                    <td>f. Buku Profil Kelurahan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_17?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -995,7 +996,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>6) Struktur organisasi BUMDesa.</td>
+                    <td>g. Buku Administrasi Umum.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_18?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -1005,11 +1006,9 @@
                 <tr>
                     <td>Ada</td>
                 </tr>
-                <tr><td colspan="3">- Aset Desa:</td></tr>
-
                 <tr>
-                    <td>1) Inventarisasi.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_19 ?></td>
+                    <td>h. Buku Administrasi Kependudukan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_19?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1019,20 +1018,8 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>2) Penambahan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_20 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td>3) Pelepasan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?=$b1->_21 ?></td>
+                    <td>i. Buku Administrasi Keuangan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_20?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1042,14 +1029,8 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td rowspan="28">2</td>
-                    <td rowspan="28">Badan Permusyawaratan Desa (BPD)</td>
-                    <td colspan="4">Sarana dan Prasarana.</td>
-
-                </tr>
-                <tr>
-                    <td>- Ruang kerja.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_22 ?></td>
+                    <td>j. Buku Administrasi Pembangunan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_21?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1060,8 +1041,8 @@
                 </tr>
 
                 <tr>
-                    <td>- Operasional dan tunjangan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_23 ?></td>
+                    <td>l. Kartu Uraian Tugas.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_22?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1071,8 +1052,8 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>- Buku data keputusan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_24 ?></td>
+                    <td>m. Peta Wilayah Kewilayahan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_23?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1082,624 +1063,8 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>- Buku data anggota.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_25 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Buku data kegiatan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_26 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Buku sekretariat. </td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_27 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Mesin ketik/komputer.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_28 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Printer.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_29 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Peraturan Tata Tertib BPDes.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_30 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td rowspan="89">3</td>
-                    <td rowspan="89">Pemerintah Desa</td>
-                    <td>a. Gedung Kantor.</td>
-                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_31?></td>
-                    <td rowspan="5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Ada, Di rumah pribadi</td>
-                </tr>
-                <tr>
-                    <td>Ada, Sewa</td>
-                </tr>
-                <tr>
-                    <td>Ada, Milik desa semipermanen</td>
-                </tr>
-                <tr>
-                    <td>Ada, Milik desa permanen</td>
-                </tr>
-                <tr>
-                    <td>b. Gedung Pertemuan/Balai Desa.</td>
-                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_32?></td>
-                    <td rowspan="5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Ada, Di rumah pribadi</td>
-                </tr>
-                <tr>
-                    <td>Ada, Sewa</td>
-                </tr>
-                <tr>
-                    <td>Ada, Milik desa semipermanen</td>
-                </tr>
-                <tr>
-                    <td>Ada, Milik desa permanen</td>
-                </tr>
-
-                <tr>
-                    <td colspan="4">c. Perangkat Desa</td>
-                </tr>
-                <tr>
-                    <td>- Jumlah Kepala Urusan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_33?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>2 Kaur</td>
-                </tr>
-                <tr>
-                    <td>3 Kaur</td>
-                </tr>
-                <tr>
-                    <td>- Jumlah Kepala Seksi.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_34?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>2 Kepala Seksi</td>
-                </tr>
-                <tr>
-                    <td>3 Kepala Seksi</td>
-                </tr>
-
-                <tr>
-                    <td>- Tingkat pendidikan Kaur dan Kasi.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_35?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>SLTA/sederajat (kurang atau sama dengan 50%)</td>
-                </tr>
-                <tr>
-                    <td>SLTA ke atas (di atas 50%)</td>
-                </tr>
-                <tr>
-                    <td>d. Struktur Organisasi Tata Kerja (SOTK).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_36?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td colspan="3">e. Pengaturan Kewenangan</td>
-                </tr>
-                <tr>
-                    <td>- Perdes kewenangan lokal asal usul.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_37?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Perdes kewenangan lokal skala Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_38?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td>- Perdes kewenangan yang ditugaskan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_39?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td>- Apakah batas desa sudah ditetapkan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_40?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Belum dengan ordinat</td>
-                </tr>
-                <tr>
-                    <td>Sudah dengan ordinat</td>
-                </tr>
-
-                <tr>
-                    <td>- Luas Wilayah.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_41?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Belum ditentukan</td>
-                </tr>
-                <tr>
-                    <td>Sudah ditentukan</td>
-                </tr>
-                <tr>
-                    <td>- Perdes kewenangan lokal skala Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_42?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Siltan Kades dan Perangkat (Nilai besarnya).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_43?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Di bawah upah minimum kabupaten</td>
-                </tr>
-                <tr>
-                    <td>Di atas upah minimum kabupaten</td>
-                </tr>
-                <tr>
-                    <td>- Berapa perdes yang ditebitkan dalam 1 tahun.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_44?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>1-3</td>
-                </tr>
-                <tr>
-                    <td>Lebih dari atau sama dengan 4</td>
-                </tr>
-                <tr>
-                    <td>- Berapa Peraturan bersama Kepala Desa yang diterbitkan dalam 1 tahun.</td>
-                    <td rowspan="4" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_45?></td>
-                    <td rowspan="4">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2-3</td>
-                </tr>
-                <tr>
-                    <td>Lebih dari 3</td>
-                </tr>
-                <tr>
-                    <td>- Pernah tidaknya menjadi juara lomba desa tingkatannya.</td>
-                    <td rowspan="6" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_46?></td>
-                    <td rowspan="6">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Pernah</td>
-                </tr>
-                <tr>
-                    <td>Pernah. Tingkat Kecamatan</td>
-                </tr>
-                <tr>
-                    <td>Pernah, Tingkat Kabupaten/Kota</td>
-                </tr>
-                <tr>
-                    <td>Pernah, Tingkat Provinsi</td>
-                </tr>
-                <tr><td>Penah, Tingkat Regional/Nasional</td></tr>
-
-                <tr>
-                    <td>- Pernah tidaknya menjadi Lab Site Kementrian / Lembaga (K/L).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_47?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Pernah</td>
-                </tr>
-                <tr>
-                    <td>Pernah</td>
-                </tr>
-                <tr>
-                    <td colspan="3">- Berapa kali dalam setahun Desa menerima Bimbingan Teknis dari:</td>
-                </tr>
-
-                <tr>
-                    <td>1) Pemerintahan Pusat.</td>
-                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_48?></td>
-                    <td rowspan="5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Pernah</td>
-                </tr>
-                <tr>
-                    <td>Pernah 1 kali</td>
-                </tr>
-                <tr><td>Pernah 2-4</td></tr>
-                <tr><td>Pernah lebih dari 4 Kali</td></tr>
-
-                <tr>
-                    <td>2) Pemerintahan Provinsi.</td>
-                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_49?></td>
-                    <td rowspan="5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Pernah</td>
-                </tr>
-                <tr>
-                    <td>Pernah 1 kali</td>
-                </tr>
-                <tr><td>Pernah 2-4</td></tr>
-                <tr><td>Pernah lebih dari 4 Kali</td></tr>
-
-                <tr>
-                    <td>3) Pemerintahan Kabupaten/Kota.</td>
-                    <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_50?></td>
-                    <td rowspan="5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Pernah</td>
-                </tr>
-                <tr>
-                    <td>Pernah 1 kali</td>
-                </tr>
-                <tr><td>Pernah 2-4</td></tr>
-                <tr><td>Pernah lebih dari 4 Kali</td></tr>
-
-                <tr>
-                    <td>f. Jaringan Listrik.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_51?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td>g. Sumber Daya Listrik (PLN).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_52?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Stabil</td>
-                </tr>
-                <tr>
-                    <td>Stabil</td>
-                </tr>
-
-                <tr>
-                    <td>h. Sumber Daya Listrik (Non-PLN).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_53?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Stabil</td>
-                </tr>
-                <tr>
-                    <td>Stabil</td>
-                </tr>
-
-                <tr>
-                    <td>i. Perpustakaan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_54?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td rowspan="12">4</td>
-                    <td rowspan="12">Administrasi Desa</td>
-                    <td>a. Administrasi Umum.</td>
-                    <td rowspan="12" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_55?></td>
-                    <td rowspan="12">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>b. Administrasi Kependudukan</td>
-                </tr>
-                <tr>
-                    <td>c. Administrasi Keuangan</td>
-                </tr>
-                <tr>
-                    <td>d. Administrasi Pembangunan</td>
-                </tr>
-                <tr>
-                    <td>e. Administrasi BPDes</td>
-                </tr>
-                <tr>
-                    <td>f. Administrasi Lainnya</td>
-                </tr>
-
-                <tr>
-                    <td>Ada 1</td>
-                </tr>
-                <tr>
-                    <td>Ada 2</td>
-                </tr>
-                <tr>
-                    <td>Ada 3</td>
-                </tr>
-                <tr>
-                    <td>Ada 4</td>
-                </tr>
-                <tr>
-                    <td>Ada 5</td>
-                </tr>
-                <tr>
-                    <td>Lengkap</td>
-                </tr>
-
-                <tr>
-                    <td rowspan="37">5</td>
-                    <td rowspan="37">Keuangan Desa</td>
-                    <td>a. Rasio Jumlah Pendapatan Asli Desa (PADes) terhadap Dana Desa(DD).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_56?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>50% ke bawah</td>
-                </tr>
-                <tr>
-                    <td>Di atas 50%</td>
-                </tr>
-                <tr>
-                    <td>b. Laporan Dana Desa (DD).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_57?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>c. Alokasi Dana Desa (DD).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_58?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>d. Hibah / sumbangan pihak ketiga..</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_59?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>e. Bantuan Keuangan dari Kabupaten/Kota.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_60?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>f. Bantuan Keuangan dari Kabupaten/Kota.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_61?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>g. Lain-lain pendapatan Desa yang Sah.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_62?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>h. Rasio Penghasilan Tetap Aparatur Desa Terhadap Belanja Pembangunan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_63?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>30% ke atas</td>
-                </tr>
-                <tr>
-                    <td>Kurang dari 30%</td>
-                </tr>
-                <tr>
-                    <td colspan="3">i. SiLPA.</td>
-                </tr>
-                <tr>
-                    <td>- SiLPA total</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_64?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Sama Dengan atau Di atas 30%</td>
-                </tr>
-                <tr>
-                    <td>Kurang dari 30%</td>
-                </tr>
-                <tr>
-                    <td>- SiLPA Dana Desa</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_65?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Sama Dengan atau Di atas 30%</td>
-                </tr>
-                <tr>
-                    <td>Kurang dari 30%</td>
-                </tr>
-
-                <tr>
-                    <td>j. Hasil kekayaan Desa yang dipisahkan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_66?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>k. Penyertaan modal Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_67?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-
-                <tr>
-                    <td rowspan="16">6</td>
-                    <td rowspan="16">Akuntabilitas, Pembinaan, dan Pengawasan</td>
-                    <td colspan="3">a. Laporan Kades kepada Pemerintahan atasan.</td>
-
-                </tr>
-                <tr>
-                    <td>- Laporan penyaluran dan realisasi penggunaan Dana Desa.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_68?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Laporan pertanggungjawaban APBDes.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_69?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>- Bentuk laporan pertanggungjawaban berupa Perdes.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_70?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak</td>
-                </tr>
-                <tr>
-                    <td>Ya</td>
-                </tr>
-
-                <tr>
-                    <td>b. Penyampaian laporan keterangan pertanggungjawaban kepada BPD.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_71?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
-                <tr>
-                    <td>b. Penyampaian informasi kepada masyarakat (terkait materi secara umum).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_72?></td>
+                    <td>n. Peta Batas Kelurahan.</td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_24?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1711,7 +1076,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah B1</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b1->sub_total_desa_b1?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b1->sub_total_kelurahan_b1?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -1836,7 +1201,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah B2</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b2->sub_total_desa_b2?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b2->sub_total_kelurahan_b2?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -1912,7 +1277,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah B3</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b3->sub_total_desa_b3?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b3->sub_total_kelurahan_b3?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ===============================PENILAIAN B4===================================== -->
@@ -1933,7 +1298,7 @@
                     <td>Ada</td>
                 </tr>
                 <tr>
-                    <td>b. Website Desa.</td>
+                    <td>b. Website Kelurahan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b4->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -2087,7 +1452,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah B3</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b4->sub_total_desa_b4?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b4->sub_total_kelurahan_b4?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ================== PENILAIAN B5 ================= -->
@@ -2153,7 +1518,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah B5</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b5->sub_total_desa_b5?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $b5->sub_total_kelurahan_b5?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -2222,7 +1587,7 @@
 
                 <tr>
                     <td rowspan="3">2</td>
-                    <td rowspan="3">Swadaya Masyarakat Untuk Pembangunan Sarana Prasarana Desa 2 Tahun Terakhir.</td>
+                    <td rowspan="3">Swadaya Masyarakat Untuk Pembangunan Sarana Prasarana Kelurahan 2 Tahun Terakhir.</td>
                     <td>Partisipasi Pendanaan Masyarakat.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c1->_3?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -2236,7 +1601,7 @@
 
                 <tr>
                     <td rowspan="3">3</td>
-                    <td rowspan="3">Swakelola Masyarakat Untuk Pembangunan Sarana Prasarana Desa 2 Tahun Terakhir.</td>
+                    <td rowspan="3">Swakelola Masyarakat Untuk Pembangunan Sarana Prasarana Kelurahan 2 Tahun Terakhir.</td>
                     <td>Partisipasi Pengelolaan Pembangunan oleh Masyarakat.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c1->_4?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -2249,7 +1614,7 @@
                 </tr>
                 <tr>
                     <td rowspan="3">4</td>
-                    <td rowspan="3">Gotong Royong Penduduk Desa 2 Tahun Terakhir.</td>
+                    <td rowspan="3">Gotong Royong Penduduk Kelurahan 2 Tahun Terakhir.</td>
                     <td>Aktifitas Gotong Royong Penduduk.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $c1->_5?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -2263,7 +1628,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C1</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c1->sub_total_desa_c1?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c1->sub_total_kelurahan_c1?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -2421,7 +1786,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C2</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c2->sub_total_desa_c2?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c2->sub_total_kelurahan_c2?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -2482,7 +1847,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C3</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c3->sub_total_desa_c3?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c3->sub_total_kelurahan_c3?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ===============================PENILAIAN B4===================================== -->
@@ -2791,7 +2156,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C4</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c4->sub_total_desa_c4?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c4->sub_total_kelurahan_c4?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ================== PENILAIAN C5 ================= -->
@@ -2883,7 +2248,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C5</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c5->sub_total_desa_c5?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c5->sub_total_kelurahan_c5?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -3077,7 +2442,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C6</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c6->sub_total_desa_c6?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c6->sub_total_kelurahan_c6?></td>
                     <td>&nbsp;</td>
                 </tr>
 
@@ -3149,7 +2514,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C7</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c7->sub_total_desa_c7?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c7->sub_total_kelurahan_c7?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ================== PENILAIAN C8 ================= -->
@@ -3184,7 +2549,7 @@
                 </tr>
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C8</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c8->sub_total_desa_c8?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c8->sub_total_kelurahan_c8?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <!-- ================== PENILAIAN C9 ================= -->
@@ -3231,7 +2596,7 @@
 
                 <tr  style="background-color: lightblue">
                     <td colspan="3"> Jumlah C9</td>
-                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c9->sub_total_desa_c9?></td>
+                    <td class="font-600 text-center" style="font-size: xx-large"><?= $c9->sub_total_kelurahan_c9?></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr  style="background-color: cornflowerblue">
@@ -3247,10 +2612,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
-            <h4 class="header-title m-t-0 m-b-30">Kesimpulan Penilaian Desa <?= $kelurahan->nama_desa?></h4>
+            <h4 class="header-title m-t-0 m-b-30">Kesimpulan Penilaian Kelurahan <?= $kelurahan->nama_kelurahan?></h4>
 
             <p>Jumlah Totak Seluruh Bidang : <?= $penilaianKelurahan->totalNilai()?></p>
-            <p>Tingkat Perkembangan Desa : <?= $penilaianKelurahan->getPerkembangan()?> </p>
+            <p>Tingkat Perkembangan Kelurahan : <?= $penilaianKelurahan->getPerkembangan()?> </p>
             <div class="clearfix"></div>
         </div>
     </div>
