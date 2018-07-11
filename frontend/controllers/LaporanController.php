@@ -1,6 +1,13 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: adryanev
+ * Date: 7/11/2018
+ * Time: 9:26 AM
+ */
 
-namespace backend\controllers;
+namespace frontend\controllers;
+
 
 use common\models\Desa;
 use common\models\Kabupaten;
@@ -55,11 +62,8 @@ use common\models\PenilaianWilayahKelurahan;
 use common\models\Provinsi;
 use Yii;
 use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Json;
-use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -79,47 +83,45 @@ class LaporanController extends \yii\web\Controller
                     ],
                 ],
             ]
-            ];
+        ];
 
 
     }
 
+    public function actionLaporanKabDesa($idKabupaten,$tahun,$jenis){
 
+        $kab = HtmlPurifier::process($idKabupaten);
+        $kabupaten = Kabupaten::findOne($kab);
+        $thn = HtmlPurifier::process($tahun);
+        $jn = HtmlPurifier::process($jenis);
+        $kec = $kabupaten->kecamatans;
+        $structure = $kec;
+        $desa = null;
+        if($jn === 'desa'){
 
-     public function actionLaporanKabDesa($idKabupaten,$tahun,$jenis){
-
-         $kab = HtmlPurifier::process($idKabupaten);
-         $kabupaten = Kabupaten::findOne($kab);
-         $thn = HtmlPurifier::process($tahun);
-         $jn = HtmlPurifier::process($jenis);
-         $kec = $kabupaten->kecamatans;
-         $structure = $kec;
-         $desa = null;
-         if($jn === 'desa'){
-
-             foreach ($kec as $k){
-                 $desa = $k->desas;
+            foreach ($kec as $k){
+                $desa = $k->desas;
 //                  $structure = $desa;
 
-             }
-         }
-         elseif ($jn === 'kelurahan'){
-             foreach ($kec as $k){
-                 $desa = $k->kelurahans;
+            }
+        }
+        elseif ($jn === 'kelurahan'){
+            foreach ($kec as $k){
+                $desa = $k->kelurahans;
 //                  $structure = $desa;
 
-             }
+            }
 
-         }
-         else{
-             throw new NotFoundHttpException("Yang anda cara tidak ada");
-         }
-
-
+        }
+        else{
+            throw new NotFoundHttpException("Yang anda cara tidak ada");
+        }
 
 
-         return $this->render('laporan-kabupaten',['kab'=>$kabupaten, 'desa'=>$desa,'struktur'=>$structure]);
-     }
+
+
+        return $this->render('laporan-kabupaten',['kab'=>$kabupaten, 'desa'=>$desa,'struktur'=>$structure]);
+    }
     public function actionIndex()
     {
         $dataProvinsi = Provinsi::getProvinsiAsMap();
@@ -316,6 +318,4 @@ class LaporanController extends \yii\web\Controller
 
         echo Json::encode(['output'=>'','selected'=>'']);
     }
-
-
 }

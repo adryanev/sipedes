@@ -186,7 +186,6 @@ class m180708_175406_create_tabel_jawaban_kelurahan extends Migration
             '_5'=>$this->integer(1)->notNull(),
             '_6'=>$this->integer(1)->notNull(),
             '_7'=>$this->integer(1)->notNull(),
-            '_8'=>$this->integer(1)->notNull(),
             'sub_total_kelurahan_b2'=>$this->integer()
         ],$tableOptions);
 

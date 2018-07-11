@@ -69,6 +69,10 @@ $currentAction = Yii::$app->controller->action->id
                         </ul>
                     </div>
                 </li>
+                <li <?php if ($currentRoute == 'laporan') echo 'class="active"' ?>>
+                    <?=\yii\helpers\Html::a('<i class="material-icons">book</i>
+                        <p>Laporan</p>',\yii\helpers\Url::to(['laporan/index']) )?>
+                </li>
 
            </ul>
         </div>

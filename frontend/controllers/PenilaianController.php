@@ -71,6 +71,22 @@ use yii\web\Response;
 class PenilaianController extends \yii\web\Controller
 {
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['desa','kelurahan','penilaian-desa' ,'index','penilaian-kelurahan'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');

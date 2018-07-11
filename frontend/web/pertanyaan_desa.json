@@ -1115,6 +1115,15 @@
             ]
           },
           {
+            "pertanyaan": "Fasilitas dalam pemasaran produk.",
+            "jawaban": [
+              {
+                "1": "Tidak Ada",
+                "2": "Ada"
+              }
+            ]
+          },
+          {
             "pertanyaan": "Kebijakan dalam pemberdayaan masyarakat Ada tidaknya regulasi dalam pemberdayaan masyarakat.",
             "jawaban": [
               {

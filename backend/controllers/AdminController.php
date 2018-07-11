@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Admin;
 use backend\models\AdminSearch;
+use yii\filters\AccessControl;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -21,6 +22,16 @@ class AdminController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create','view','delete' ,'index','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -115,8 +126,19 @@ class AdminController extends Controller
             return $this->redirect(['admin/view']);
         }
         $model = $this->findModel($id);
+        $currentPass = $model->password_hash;
+        if ($model->load(Yii::$app->request->post()) ) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $pass = Yii::$app->request->post('Admin')['password_hash'];
+            if($currentPass != $pass){
+                $model->password_hash = Yii::$app->security->generatePasswordHash($pass);
+            }else{
+                $model->password_hash = $currentPass;
+            }
+
+            Yii::$app->session->setFlash('success','Admin berhasil diperbarui.');
+
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

@@ -78,7 +78,7 @@ use yii\widgets\Breadcrumbs;
                             <li>
                             <?= Html::a(
                                 'Pengaturan Akun',
-                                ['/admin/update/'.Yii::$app->user->getId()],
+                                ['/user/view/'.Yii::$app->user->getId()],
                                 ['data-method' => 'post']
                             ) ?>
                             </li>

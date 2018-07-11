@@ -8,9 +8,27 @@ use common\models\Kecamatan;
 use common\models\Kelurahan;
 use common\models\Provinsi;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 
 class WilayahController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+
+        ];
+    }
     public function actionIndex()
     {
         $dataProvinsi = Provinsi::find()->limit(10);
