@@ -18,8 +18,7 @@ class DesaSearch extends Desa
     public function rules()
     {
         return [
-            [['id_desa', 'id_kecamatan'], 'integer'],
-            [['nama_desa', 'created_at', 'updated_at'], 'safe'],
+            [['id_desa', 'nama_desa', 'id_kecamatan'], 'safe'],
         ];
     }
 
@@ -58,14 +57,9 @@ class DesaSearch extends Desa
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id_desa' => $this->id_desa,
-            'id_kecamatan' => $this->id_kecamatan,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
-
-        $query->andFilterWhere(['like', 'nama_desa', $this->nama_desa]);
+        $query->andFilterWhere(['like', 'id_desa', $this->id_desa])
+            ->andFilterWhere(['like', 'nama_desa', $this->nama_desa])
+            ->andFilterWhere(['like', 'id_kecamatan', $this->id_kecamatan]);
 
         return $dataProvider;
     }

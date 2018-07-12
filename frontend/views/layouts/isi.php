@@ -29,7 +29,7 @@ use yii\widgets\Breadcrumbs;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"> Dashboard </a>
+                <a class="navbar-brand" href="#"> <?= \yii\helpers\Inflector::camel2words(Yii::$app->controller->id)?> </a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -78,7 +78,7 @@ use yii\widgets\Breadcrumbs;
                             <li>
                             <?= Html::a(
                                 'Pengaturan Akun',
-                                ['/admin/update/'.Yii::$app->user->getId()],
+                                ['/user/view/'.Yii::$app->user->getId()],
                                 ['data-method' => 'post']
                             ) ?>
                             </li>
@@ -94,16 +94,16 @@ use yii\widgets\Breadcrumbs;
 
                     <li class="separator hidden-lg hidden-md"></li>
                 </ul>
-<!--                <form class="navbar-form navbar-right" role="search">-->
-<!--                    <div class="form-group form-search is-empty">-->
-<!--                        <input type="text" class="form-control" placeholder="Search">-->
-<!--                        <span class="material-input"></span>-->
-<!--                    </div>-->
-<!--                    <button type="submit" class="btn btn-white btn-round btn-just-icon">-->
-<!--                        <i class="material-icons">search</i>-->
-<!--                        <div class="ripple-container"></div>-->
-<!--                    </button>-->
-<!--                </form>-->
+                <form class="navbar-form navbar-right hidden" role="search">
+                    <div class="form-group form-search is-empty">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="material-input"></span>
+                    </div>
+                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i>
+                        <div class="ripple-container"></div>
+                    </button>
+                </form>
             </div>
         </div>
     </nav>

@@ -6,6 +6,7 @@ use common\models\Kecamatan;
 use Yii;
 use common\models\Desa;
 use common\models\DesaSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -21,6 +22,16 @@ class DesaController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create','view','delete' ,'index','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -47,7 +58,7 @@ class DesaController extends Controller
 
     /**
      * Displays a single Desa model.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
@@ -66,52 +77,49 @@ class DesaController extends Controller
     public function actionCreate()
     {
         $model = new Desa();
-        $dataKecamatan = Kecamatan::getAllKecamatanAsKeyValue();
-
+        $dataKecamatan = Kecamatan::getKecamatanAsMap();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil menambahkan desa');
             return $this->redirect(['view', 'id' => $model->id_desa]);
         }
 
         return $this->render('create', [
             'model' => $model,
-	        'dataKecamatan'=>$dataKecamatan
+            'dataKecamatan'=>$dataKecamatan
         ]);
     }
 
     /**
      * Updates an existing Desa model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-	    $dataKecamatan = Kecamatan::getAllKecamatanAsKeyValue();
+        $dataKecamatan = Kecamatan::getKecamatanAsMap();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	Yii::$app->session->setFlash('success','Berhasil mengubah desa');
             return $this->redirect(['view', 'id' => $model->id_desa]);
         }
+
         return $this->render('update', [
             'model' => $model,
-	        'dataKecamatan'=>$dataKecamatan,
+            'dataKecamatan'=>$dataKecamatan
         ]);
     }
 
     /**
      * Deletes an existing Desa model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success','Berhasil menghapus desa');
 
         return $this->redirect(['index']);
     }
@@ -119,7 +127,7 @@ class DesaController extends Controller
     /**
      * Finds the Desa model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param string $id
      * @return Desa the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */

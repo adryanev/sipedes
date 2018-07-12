@@ -3,17 +3,14 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "kabupaten".
  *
- * @property int $id_kabupaten
+ * @property string $id_kabupaten
  * @property string $nama_kabupaten
- * @property int $id_provinsi
- * @property string $created_at
- * @property string $updated_at
+ * @property string $id_provinsi
  *
  * @property Provinsi $provinsi
  * @property Kecamatan[] $kecamatans
@@ -28,25 +25,16 @@ class Kabupaten extends \yii\db\ActiveRecord
         return 'kabupaten';
     }
 
-	public function behaviors() {
-		return [
-			'timestamp' => [
-				'class' => TimestampBehavior::className(),
-				'createdAtAttribute' => 'created_at',
-				'updatedAtAttribute' => 'updated_at',
-				'value' => new \yii\db\Expression('NOW()'),
-			],
-		];
-	}
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_provinsi'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['id_kabupaten'], 'required'],
+            [['id_kabupaten', 'id_provinsi'], 'string', 'max' => 15],
             [['nama_kabupaten'], 'string', 'max' => 255],
+            [['id_kabupaten'], 'unique'],
             [['id_provinsi'], 'exist', 'skipOnError' => true, 'targetClass' => Provinsi::className(), 'targetAttribute' => ['id_provinsi' => 'id_provinsi']],
         ];
     }
@@ -59,9 +47,7 @@ class Kabupaten extends \yii\db\ActiveRecord
         return [
             'id_kabupaten' => 'Id Kabupaten',
             'nama_kabupaten' => 'Nama Kabupaten',
-            'id_provinsi' => 'ID Provinsi',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'id_provinsi' => 'Id Provinsi',
         ];
     }
 
@@ -81,9 +67,11 @@ class Kabupaten extends \yii\db\ActiveRecord
         return $this->hasMany(Kecamatan::className(), ['id_kabupaten' => 'id_kabupaten']);
     }
 
-    public static function getAllKabupatenAsKeyValue(){
-	    $model = Kabupaten::find()->all();
-	    $dataKabupaten = ArrayHelper::map($model,'id_kabupaten','nama_kabupaten');
-	    return $dataKabupaten;
+    public static function getKabupatenAsMap(){
+
+        $kabupaten = Kabupaten::find()->all();
+        $kabupatenMap = ArrayHelper::map($kabupaten,'id_kabupaten','nama_kabupaten');
+
+        return $kabupatenMap;
     }
 }

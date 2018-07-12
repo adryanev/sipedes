@@ -18,8 +18,7 @@ class KelurahanSearch extends Kelurahan
     public function rules()
     {
         return [
-            [['id_kelurahan', 'id_kecamatan'], 'integer'],
-            [['nama_kelurahan', 'created_at', 'updated_at'], 'safe'],
+            [['id_kelurahan', 'nama_kelurahan', 'id_kecamatan'], 'safe'],
         ];
     }
 
@@ -58,14 +57,9 @@ class KelurahanSearch extends Kelurahan
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id_kelurahan' => $this->id_kelurahan,
-            'id_kecamatan' => $this->id_kecamatan,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
-
-        $query->andFilterWhere(['like', 'nama_kelurahan', $this->nama_kelurahan]);
+        $query->andFilterWhere(['like', 'id_kelurahan', $this->id_kelurahan])
+            ->andFilterWhere(['like', 'nama_kelurahan', $this->nama_kelurahan])
+            ->andFilterWhere(['like', 'id_kecamatan', $this->id_kecamatan]);
 
         return $dataProvider;
     }

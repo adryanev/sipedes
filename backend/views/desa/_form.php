@@ -11,15 +11,14 @@ use yii\widgets\ActiveForm;
 <div class="desa-form">
 
     <?php $form = ActiveForm::begin(); ?>
-	<?= $form->field($model, 'id_kecamatan')->widget(\kartik\select2\Select2::className(),[
-	        'data' => $dataKecamatan,
-            'language' => 'id',
-            'options' => ['placeholder'=>'Pilih Kecamatan']
-    ]) ?>
+
+    <?= $form->field($model, 'id_kecamatan')->widget(\kartik\select2\Select2::className(),[
+            'data'=>$dataKecamatan,
+            'options'=>['placeholder'=>'Pilih Kecamatan']
+    ])->label('Nama Kecamatan') ?>
+    <?= $form->field($model, 'id_desa')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'nama_desa')->textInput(['maxlength' => true]) ?>
-
-
 
 
 

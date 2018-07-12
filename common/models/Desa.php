@@ -3,18 +3,16 @@
 namespace common\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "desa".
  *
- * @property int $id_desa
+ * @property string $id_desa
  * @property string $nama_desa
- * @property int $id_kecamatan
- * @property string $created_at
- * @property string $updated_at
+ * @property string $id_kecamatan
  *
  * @property Kecamatan $kecamatan
+ * @property PenilaianDesa[] $penilaianDesas
  */
 class Desa extends \yii\db\ActiveRecord
 {
@@ -26,25 +24,16 @@ class Desa extends \yii\db\ActiveRecord
         return 'desa';
     }
 
-	public function behaviors() {
-		return [
-			'timestamp' => [
-				'class' => TimestampBehavior::className(),
-				'createdAtAttribute' => 'created_at',
-				'updatedAtAttribute' => 'updated_at',
-				'value' => new \yii\db\Expression('NOW()'),
-			],
-		];
-	}
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id_kecamatan'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['id_desa'], 'required'],
+            [['id_desa', 'id_kecamatan'], 'string', 'max' => 15],
             [['nama_desa'], 'string', 'max' => 255],
+            [['id_desa'], 'unique'],
             [['id_kecamatan'], 'exist', 'skipOnError' => true, 'targetClass' => Kecamatan::className(), 'targetAttribute' => ['id_kecamatan' => 'id_kecamatan']],
         ];
     }
@@ -58,8 +47,6 @@ class Desa extends \yii\db\ActiveRecord
             'id_desa' => 'Id Desa',
             'nama_desa' => 'Nama Desa',
             'id_kecamatan' => 'Id Kecamatan',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
         ];
     }
 
@@ -69,5 +56,13 @@ class Desa extends \yii\db\ActiveRecord
     public function getKecamatan()
     {
         return $this->hasOne(Kecamatan::className(), ['id_kecamatan' => 'id_kecamatan']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPenilaianDesas()
+    {
+        return $this->hasMany(PenilaianDesa::className(), ['id_desa' => 'id_desa']);
     }
 }

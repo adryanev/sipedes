@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Kelurahan */
 
 $this->title = $model->nama_kelurahan;
+$this->params['breadcrumbs'][] = ['label'=>'Wilayah','url'=>['wilayah/index']];;
 $this->params['breadcrumbs'][] = ['label' => 'Kelurahan', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,13 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">face</i>
-                </div>
+            <div class="card-box">
                 <div class="card-content">
-                    <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
-
+                    <h4 class="header-title m-t-0 m-b-30"><?= Html::encode($this->title) ?></h4>
                     <div class="row">
                         <div class="col-md-12">
                             <p>
@@ -38,15 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             'model' => $model,
                             'attributes' => [
                                         'id_kelurahan',
-	                            ['attribute'=>'Nama Provinsi' ,
-	                             'value'=>$model->getKecamatan()->one()->getKabupaten()->one()->getProvinsi()->one()->nama_provinsi],
-	                            ['attribute'=>'Nama Kabupaten',
-	                             'value'=>$model->getKecamatan()->one()->getKabupaten()->one()->nama_kabupaten],
-	                            ['attribute'=>'Nama Kecamatan',
-	                             'value'=>$model->getKecamatan()->one()->nama_kecamatan],
             'nama_kelurahan',
-            'created_at',
-            'updated_at',
+            'kecamatan.nama_kecamatan',
+                                'kecamatan.kabupaten.nama_kabupaten',
+                                'kecamatan.kabupaten.provinsi.nama_provinsi'
                             ],
                             ]) ?>
                         </div>

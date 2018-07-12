@@ -2,20 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: adryanev
- * Date: 05/04/18
- * Time: 22:18
- */
-?>
-<footer class="footer">
-    <div class="container-fluid">
-        <p class="copyright pull-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            <a href="https://www.circlenode.com" target="_blank">Nurkholis</a>,Teknik Informatika UIN SUSKA RIAU
-        </p>
-    </div>
+ * Date: 25/01/18
+ * Time: 13:46
+ */?>
+
+<footer class="footer text-right">
+    &copy; <script>document.write(new Date().getFullYear())</script> Nurkholis.
 </footer>
+
 </div>
+
+<script>var resizefunc = []</script>
+
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
 

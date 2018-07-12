@@ -18,8 +18,7 @@ class ProvinsiSearch extends Provinsi
     public function rules()
     {
         return [
-            [['id_provinsi'], 'integer'],
-            [['nama_provinsi', 'created_at', 'updated_at'], 'safe'],
+            [['id_provinsi', 'nama_provinsi'], 'safe'],
         ];
     }
 
@@ -58,13 +57,8 @@ class ProvinsiSearch extends Provinsi
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id_provinsi' => $this->id_provinsi,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
-
-        $query->andFilterWhere(['like', 'nama_provinsi', $this->nama_provinsi]);
+        $query->andFilterWhere(['like', 'id_provinsi', $this->id_provinsi])
+            ->andFilterWhere(['like', 'nama_provinsi', $this->nama_provinsi]);
 
         return $dataProvider;
     }

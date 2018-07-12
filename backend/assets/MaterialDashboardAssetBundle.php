@@ -17,40 +17,47 @@ class MaterialDashboardAssetBundle extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/material-dashboard.css?v=1.2.0',
-        'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
-        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
-        'https://fonts.googleapis.com/icon?family=Material+Icons',
+        'css/components.css',
+        'css/core.css',
+        'css/icons.css',
+        'css/menu.css',
+        'css/pages.css',
+        'css/responsive.css',
+        'css/variables.css',
+        'css/pace-theme-flash.css',
+        'plugins/jquery-ui/jquery-ui.css',
+        'plugins/css/animate.css',
+
     ];
     public $js = [
 
-        'js/material.min.js',
-        'js/perfect-scrollbar.jquery.min.js',
-        'js/arrive.min.js',
-        'js/jquery.validate.min.js',
-        'js/es6-promise-auto.min.js',
-        'js/moment.min.js',
-        'js/chartist.min.js',
-        'js/jquery.bootstrap-wizard.js',
-        'js/bootstrap-notify.js',
-        'js/bootstrap-datetimepicker.js',
-        'js/jquery-jvectormap.js',
-        'js/nouislider.min.js',
-        'js/jquery.select-bootstrap.js',
-        //'js/sweetalert2.js',
-        'js/fullcalendar.min.js',
-        'js/jquery.tagsinput.js',
-        'js/jasny-bootstrap.min.js',
-        'js/material-dashboard.js?v=1.2.0',
-	    'js/yii2-override.js',
+        'js/detect.js',
+        'js/yii_override.js',
+        'plugins/waypoints/lib/jquery.waypoints.js',
+        'plugins/counterup/jquery.counterup.min.js',
+        'js/fastclick.js',
+        'js/jquery.blockUI.js',
+        'js/jquery.nicescroll.js',
+        'js/jquery.scrollTo.min.js',
+        'js/jquery.slimscroll.js',
+        'js/modernizr.min.js',
+        'js/pace.min.js',
+        'js/waves.js',
+        'js/wow.min.js',
+        'plugins/jquery-knob/jquery.knob.js',
+        'plugins/jquery-ui/jquery-ui.js',
+        'plugins/raphael/raphael-min.js',
+        'plugins/moment/moment.js',
+        'js/jquery.app.js',
+        'js/jquery.core.js',
 
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
-        'yii\web\JqueryAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
-	    '\yii2mod\alert\AlertAsset'
-
+        'yii2mod\alert\AlertAsset',
+        'sjaakp\taggable\TagEditorAsset',
+        'kartik\file\PiExifAsset',
+        'fedemotta\datatables\DataTablesBootstrapAsset',
     ];
 }
