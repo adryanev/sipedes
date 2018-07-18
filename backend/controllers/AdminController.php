@@ -65,9 +65,9 @@ class AdminController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView()
     {
-
+        $id = Yii::$app->user->identity->getId();
         if(Yii::$app->user->identity->jabatan == 'Pimpinan' || Yii::$app->user->identity->jabatan == 'Super Admin'){
             $model = $this->findModel($id);
         }

@@ -41,7 +41,7 @@
 
                 <p>Tahun&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $penilaianKelurahan->tahun_penilaian?></p>
                 <p>Nama Tim Penilai&emsp;: <?= $penilaianKelurahan->getPenilai0()->one()->nama?></p>
-                <p>Kelurahan&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->nama_kelurahan ?></p>
+                <p>Kelurahan&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->nama_kelurahan ?></p>
                 <p>Kecamatan&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->getKecamatan()->one()->nama_kecamatan ?></p>
                 <p>Kabupaten/Kota&emsp;&emsp;: <?= $kelurahan->getKecamatan()->one()->getKabupaten()->one()->nama_kabupaten ?></p>
                 <div class="clearfix"></div>
@@ -118,7 +118,7 @@
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td>Batas Kelurahan</td>
+                        <td>Batas Desa</td>
                         <td>:</td>
                         <td colspan="3"><?= \yii\helpers\HtmlPurifier::process($a2->batas)?></td>
                     </tr>
@@ -701,8 +701,8 @@
                         <td colspan="5">V. Pengaturan Investasi</td>
                     </tr>
                     <tr>
-                        <td rowspan="15">1</td>
-                        <td rowspan="15">Investasi yang masuk ke Desa dan Kelurahan</td>
+                        <td rowspan="12">1</td>
+                        <td rowspan="12">Investasi yang masuk ke Desa dan Kelurahan</td>
                         <td>a. Investasi yang masik ke Desa dan Kelurahan dalam 2 tahun terakhir.</td>
                         <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $a5->_1 ?></td>
                         <td rowspan="3">&nbsp;</td>
@@ -759,8 +759,8 @@
                     </tbody>
                 </table>
             </div>
-            </div>
 
+        </div>
     </div>
 </div>
 
@@ -789,8 +789,8 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td rowspan="89">1</td>
-                        <td rowspan="89">Sarana Prasarana</td>
+                        <td rowspan="33">1</td>
+                        <td rowspan="33">Sarana Prasarana</td>
                         <td>a. Gedung Kantor.</td>
                         <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_1?></td>
                         <td rowspan="5">&nbsp;</td>
@@ -823,7 +823,7 @@
                     </tr>
 
                     <tr>
-                        <td colspan="4">c. Perangkat Kelurahan</td>
+                        <td>c. Perangkat Kelurahan</td>
                         <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_3?></td>
                         <td rowspan="3">&nbsp;</td>
                     </tr>
@@ -935,8 +935,8 @@
                         <td>Ada dan dimanfaatkan.</td>
                     </tr>
                     <tr>
-                        <td rowspan="37">4</td>
-                        <td rowspan="37">Administrasi</td>
+                        <td rowspan="39">4</td>
+                        <td rowspan="39">Administrasi</td>
                         <td>a. Laporan Kinerja Tahunan.</td>
                         <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_12?></td>
                         <td rowspan="3">&nbsp;</td>
@@ -1092,8 +1092,8 @@
                         <td colspan="5">II. Kinerja</td>
                     </tr>
                     <tr>
-                        <td rowspan="30">1</td>
-                        <td rowspan="30">Kinerja</td>
+                        <td rowspan="27">1</td>
+                        <td rowspan="27">Kinerja</td>
                         <td colspan="3">a. Strategi dalam pemberdayaan masyarakat.</td>
                     </tr
 
@@ -1199,6 +1199,7 @@
                         <td class="font-600 text-center" style="font-size: xx-large"><?= $b2->sub_total_kelurahan_b2?></td>
                         <td>&nbsp;</td>
                     </tr>
+
                     <tr>
                         <td colspan="5">III. INISIATIF DAN KREATIVITAS DALAM PEMBERDAYAAN MASYARAKAT</td>
                     </tr>
@@ -1525,8 +1526,8 @@
                     </tbody>
                 </table>
             </div>
-            </div>
 
+        </div>
     </div>
 </div>
 
@@ -1535,6 +1536,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-content">
+
                 <h4 class="header-title m-t-0 m-b-30">Bidang Kemasyarakatan</h4>
                 <table class="table table-bordered table-hover table-responsive table-box">
                     <thead>
@@ -2605,8 +2607,8 @@
                     </tbody>
                 </table>
             </div>
-            </div>
 
+        </div>
     </div>
 </div>
 <div class="row">

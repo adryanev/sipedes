@@ -39,8 +39,8 @@
             <h4 class="header-title m-t-0 m-b-30">Laporan Penilaian Kelurahan <?= $kelurahan->nama_kelurahan?></h4>
 
             <p>Tahun&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $penilaianKelurahan->tahun_penilaian?></p>
-            <p>Nama Tim Penilai&emsp;: <?= $penilaianKelurahan->getPenilai()->one()->nama?></p>
-            <p>Desa&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->nama_kelurahan ?></p>
+            <p>Nama Tim Penilai&emsp;: <?= $penilaianKelurahan->getPenilai0()->one()->nama?></p>
+            <p>Kelurahan&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->nama_kelurahan ?></p>
             <p>Kecamatan&emsp;&emsp;&emsp;&emsp;: <?= $kelurahan->getKecamatan()->one()->nama_kecamatan ?></p>
             <p>Kabupaten/Kota&emsp;&emsp;: <?= $kelurahan->getKecamatan()->one()->getKabupaten()->one()->nama_kabupaten ?></p>
             <div class="clearfix"></div>
@@ -697,8 +697,8 @@
                     <td colspan="5">V. Pengaturan Investasi</td>
                 </tr>
                 <tr>
-                    <td rowspan="15">1</td>
-                    <td rowspan="15">Investasi yang masuk ke Desa dan Kelurahan</td>
+                    <td rowspan="12">1</td>
+                    <td rowspan="12">Investasi yang masuk ke Desa dan Kelurahan</td>
                     <td>a. Investasi yang masik ke Desa dan Kelurahan dalam 2 tahun terakhir.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $a5->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -782,8 +782,8 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td rowspan="89">1</td>
-                    <td rowspan="89">Sarana Prasarana</td>
+                    <td rowspan="33">1</td>
+                    <td rowspan="33">Sarana Prasarana</td>
                     <td>a. Gedung Kantor.</td>
                     <td rowspan="5" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_1?></td>
                     <td rowspan="5">&nbsp;</td>
@@ -816,7 +816,7 @@
                 </tr>
 
                 <tr>
-                    <td colspan="4">c. Perangkat Kelurahan</td>
+                    <td>c. Perangkat Kelurahan</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_3?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
@@ -928,8 +928,8 @@
                     <td>Ada dan dimanfaatkan.</td>
                 </tr>
                 <tr>
-                    <td rowspan="37">4</td>
-                    <td rowspan="37">Administrasi</td>
+                    <td rowspan="39">4</td>
+                    <td rowspan="39">Administrasi</td>
                     <td>a. Laporan Kinerja Tahunan.</td>
                     <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b1->_12?></td>
                     <td rowspan="3">&nbsp;</td>
@@ -1085,26 +1085,14 @@
                     <td colspan="5">II. Kinerja</td>
                 </tr>
                 <tr>
-                    <td rowspan="30">1</td>
-                    <td rowspan="30">Kinerja</td>
+                    <td rowspan="27">1</td>
+                    <td rowspan="27">Kinerja</td>
                     <td colspan="3">a. Strategi dalam pemberdayaan masyarakat.</td>
-                </tr>
-
-                <tr>
-                    <td>- Perencanaan Pembangunan Partisipatif Masyarakat (P3MD).</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_1 ?></td>
-                    <td rowspan="3">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>Tidak Ada</td>
-                </tr>
-                <tr>
-                    <td>Ada</td>
-                </tr>
+                </tr
 
                 <tr>
                     <td>- Peningkatan kapasistas kelompok masyarakat 2 tahun terakhir.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_2 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_1 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1115,7 +1103,7 @@
                 </tr>
                 <tr>
                     <td>- Fasilitasi dalam pemasaran produk unggulan dari masyarakat</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_3 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_2 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1126,7 +1114,7 @@
                 </tr>
                 <tr>
                     <td>b. Kebijakan dalam pemberdayaan masyarakat, ada tidaknya regulasi dalam pemberdayaan masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_4 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_3 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1140,7 +1128,7 @@
                 </tr>
                 <tr>
                     <td>- Melakukan forum-forum kebersamaan seperti gotong royong 2 tahun terkahir</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_5  ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_4  ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1152,7 +1140,7 @@
 
                 <tr>
                     <td>- Reward bagi perangkat dan kelompok masyarakat</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_6 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_5 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1167,7 +1155,7 @@
                 </tr>
                 <tr>
                     <td>- Apakah telah mendata kehadiran pegawai secara rutin.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_7 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_6 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1178,7 +1166,7 @@
                 </tr>
                 <tr>
                     <td>- Apakah telah memiliki standar jam pelayanan.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_8 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_7 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1189,7 +1177,7 @@
                 </tr>
                 <tr>
                     <td>- Apakah sudah memiliki Standar Operasional Prosedur (SOP) Pelayanan Masyarakat.</td>
-                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_9 ?></td>
+                    <td rowspan="3" class="font-600 text-center" style="font-size: xx-large"><?= $b2->_8 ?></td>
                     <td rowspan="3">&nbsp;</td>
                 </tr>
                 <tr>
@@ -1204,6 +1192,7 @@
                     <td class="font-600 text-center" style="font-size: xx-large"><?= $b2->sub_total_kelurahan_b2?></td>
                     <td>&nbsp;</td>
                 </tr>
+
                 <tr>
                     <td colspan="5">III. INISIATIF DAN KREATIVITAS DALAM PEMBERDAYAAN MASYARAKAT</td>
                 </tr>

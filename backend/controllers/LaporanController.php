@@ -73,7 +73,7 @@ class LaporanController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['laporan-kab-desa','index','laporan-kelurahan' ,'laporan-desa'],
+                        'actions' => ['laporan-kab-desa','index','laporan-kelurahan' ,'laporan-desa','get-provinsi','get-kabupaten','get-kecamatan','get-kelurahan','get-desa'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -132,6 +132,10 @@ class LaporanController extends \yii\web\Controller
         $kelurahan = Kelurahan::find()->where(['id_kelurahan'=>$kel])->one();
         $thn = HtmlPurifier::process($tahun);
         $penKel = PenilaianKelurahan::find()->where(['id_kelurahan'=>$kel,'tahun_penilaian'=>$thn])->one();
+        if($penKel === null){
+            Yii::$app->session->setFlash('warning','Data tidak ada');
+            return $this->redirect(['laporan/index']);
+        }
         $penilaianWilayah= PenilaianWilayahKelurahan::find()->where(['id_penilaian_Kelurahan'=>$penKel->id])->one();
         $penilaianPemerintahan = PenilaianPemerintahanKelurahan::find()->where(['id_penilaian_Kelurahan'=>$penKel->id])->one();
         $penilaianKemasyarakatan = PenilaianMasyarakatKelurahan::find()->where(['id_penilaian_kelurahan'=>$penKel->id])->one();
@@ -190,6 +194,10 @@ class LaporanController extends \yii\web\Controller
         $desa = Desa::find()->where(['id_desa'=>$des])->one();
         $thn = HtmlPurifier::process($tahun);
         $penDes = PenilaianDesa::find()->where(['id_desa'=>$des,'tahun_penilaian'=>$thn])->one();
+        if($penDes === null){
+            Yii::$app->session->setFlash('warning','Data tidak ada');
+            return $this->redirect(['laporan/index']);
+        }
         $penilaianWilayah= PenilaianWilayahDesa::find()->where(['id_penilaian_desa'=>$penDes->id])->one();
         $penilaianPemerintahan = PenilaianPemerintahanDesa::find()->where(['id_penilaian_desa'=>$penDes->id])->one();
         $penilaianKemasyarakatan = PenilaianMasyarakatDesa::find()->where(['id_penilaian_desa'=>$penDes->id])->one();

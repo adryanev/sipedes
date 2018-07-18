@@ -56,4 +56,12 @@ class Kelurahan extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Kecamatan::className(), ['id_kecamatan' => 'id_kecamatan']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPenilaianKelurahans()
+    {
+        return $this->hasMany(PenilaianKelurahan::className(), ['id_kelurahan' => 'id_kelurahan']);
+    }
 }

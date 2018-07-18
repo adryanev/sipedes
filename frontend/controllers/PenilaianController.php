@@ -61,6 +61,7 @@ use kartik\depdrop\DepDropAction;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\Exception;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
@@ -78,7 +79,7 @@ class PenilaianController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['desa','kelurahan','penilaian-desa' ,'index','penilaian-kelurahan'],
+                        'actions' => ['desa','kelurahan','penilaian-desa' ,'index','penilaian-kelurahan','get-kelurahan','get-provinsi','get-kabupaten','get-kecamatan','get-desa'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
