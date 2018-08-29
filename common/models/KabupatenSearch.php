@@ -40,7 +40,7 @@ class KabupatenSearch extends Kabupaten
      */
     public function search($params)
     {
-        $query = Kabupaten::find();
+        $query = Kabupaten::find()->where(['status'=>'AKTIF']);
 
         // add conditions that should always apply here
 

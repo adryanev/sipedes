@@ -69,6 +69,7 @@ class UserController extends Controller
             }else{
                 $model->password_hash = $current_pass;
             }
+            $model->status=10;
             $model->save(false);
             Yii::$app->session->setFlash('success','User berhasil diperbarui.');
 

@@ -44,7 +44,7 @@
                 <p>Desa&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $desa->nama_desa ?></p>
                 <p>Kecamatan&emsp;&emsp;&emsp;&emsp;: <?= $desa->getKecamatan()->one()->nama_kecamatan ?></p>
                 <p>Kabupaten/Kota&emsp;&emsp;: <?= $desa->getKecamatan()->one()->getKabupaten()->one()->nama_kabupaten ?></p>
-                <div class="clearfix"></div>
+
             </div>
 
         </div>

@@ -213,6 +213,6 @@ class User extends ActiveRecord implements IdentityInterface
         $model->setPassword($password);
         $model->generateAuthKey();
 
-        $model->save()? $model: null;
+       return $model->save()? $model: null;
     }
 }

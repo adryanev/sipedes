@@ -40,7 +40,7 @@ class ProvinsiSearch extends Provinsi
      */
     public function search($params)
     {
-        $query = Provinsi::find();
+        $query = Provinsi::find()->where(['status'=>'AKTIF']);
 
         // add conditions that should always apply here
 

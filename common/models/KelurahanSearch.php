@@ -40,7 +40,7 @@ class KelurahanSearch extends Kelurahan
      */
     public function search($params)
     {
-        $query = Kelurahan::find();
+        $query = Kelurahan::find()->where(['status'=>'AKTIF']);
 
         // add conditions that should always apply here
 

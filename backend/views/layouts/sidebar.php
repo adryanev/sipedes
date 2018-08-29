@@ -46,20 +46,28 @@ $controllerName = substr($route,0,strpos($route,'/'));
             <ul>
                 <li class="text-muted menu-title">Navigation</li>
             </ul>
+
+            <?php
+            if(Yii::$app->user->identity->jabatan === 'Pimpinan'):
+            ?>
             <?= \common\widgets\Menu::widget(
-                Yii::$app->user->identity->jabatan === 'Pimpinan' ?
                     [
-                 'items' => [
-                                     ['label'=>'Admin', 'icon'=>'zmdi-account','url'=>['/admin'],'template'=>$controllerName === 'admin'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+                            'items'=>[
+                                ['label'=>'Admin', 'icon'=>'zmdi-account','url'=>['/admin'],'template'=>$controllerName === 'admin'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
+
+                            ]
                     ]
-                ]:
-                    Yii::$app->user->identity->jabatan === 'Administrator' ? [
+            ) ?>
+            <?php else: ?>
+            <?= \common\widgets\Menu::widget(
+                    Yii::$app->user->identity->jabatan === 'Administrator'  && Yii::$app->user->identity->jabatan !== 'Pimpinan' ? [
                         'items' => [
                             ['label'=>'Beranda', 'icon'=>'zmdi-view-dashboard','url'=>['/site'],'template'=>$controllerName === 'site'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
                             ['label'=>'Wilayah', 'icon'=>'zmdi-map','url'=>['/wilayah'],'template'=>$controllerName === 'wilayah' || $controllerName === 'provinsi' || $controllerName === 'kabupaten' || $controllerName == 'kecamatan' || $controllerName === 'kelurahan' || $controllerName === 'desa'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
                             ['label'=>'Laporan', 'icon'=>'zmdi-file-text','url'=>['/laporan'],'template'=>$controllerName === 'laporan'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
                             ['label'=>'Penilai', 'icon'=>'zmdi-accounts','url'=>['/user'],'template'=>$controllerName === 'user' ? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
-                        ]]:
+                        ]]
+                        :
                     [
                         'items' => [
                             ['label'=>'Beranda', 'icon'=>'zmdi-view-dashboard','url'=>['/site'],'template'=>$controllerName === 'site'? '<a href="{url}" class="waves-effect active">{icon} {label}</a>': '<a href="{url}" class="waves-effect">{icon} {label}</a>'],
@@ -72,6 +80,9 @@ $controllerName = substr($route,0,strpos($route,'/'));
                     ]
 
             ) ?>
+
+            <?php endif;
+            ?>
         </div>
         <div class="clearfix"></div>
 

@@ -6,7 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Admin */
 
-$this->title = $model->id;
+$this->title = $model->username;
+$jabatan = Yii::$app->user->identity->jabatan;
 $this->params['breadcrumbs'][] = ['label' => 'Admin', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -20,32 +21,32 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="row">
                         <div class="col-md-12">
                             <p>
-                                <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a('Hapus', ['delete', 'id' => $model->id], [
+                                <?= $jabatan === 'Pimpinan' || $jabatan === 'Super Admin'? Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) : ''?>
+                                <?= $jabatan === 'Pimpinan' || $jabatan === 'Super Admin'? Html::a('Hapus', ['delete', 'id' => $model->id], [
                                 'class' => 'btn btn-danger',
                                 'data' => [
                                 'confirm' => 'Anda yakin untuk menghapus item ini?',
                                 'method' => 'post',
                                 ],
-                                ]) ?>
+                                ]) : '' ?>
                             </p>
 
                             <?= DetailView::widget([
                             'model' => $model,
                             'attributes' => [
-                                        'id',
+                                        //'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
+          //  'auth_key',
+          //  'password_hash',
+          //  'password_reset_token',
             'email:email',
-            'status',
+            //'status',
             'nama',
             'nip',
-            'avatar',
+            //'avatar',
             'jabatan',
-            'created_at',
-            'updated_at',
+           'created_at',
+           'updated_at',
                             ],
                             ]) ?>
                         </div>

@@ -100,10 +100,11 @@ class AdminController extends Controller
             $model->avatar = "2.jpg";
 
             if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['admin/index']);
             }
             else{
-                VarDumper::dump($model);
+                Yii::$app->session->setFlash('danger','User sudah ada.');
+                return $this->redirect(['admin/index']);
             }
 
         }
@@ -159,8 +160,11 @@ class AdminController extends Controller
         if(Yii::$app->user->identity->jabatan != 'Super Admin' && Yii::$app->user->identity->jabatan != 'Pimpinan'){
             return $this->redirect(['admin/view']);
         }
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $model->status = 0;
+        $model->save(false);
 
+        Yii::$app->session->setFlash('success','Berhasil menghapus Admin / Pimpinan');
         return $this->redirect(['index']);
     }
 

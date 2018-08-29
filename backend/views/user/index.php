@@ -37,18 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_hash',
             //'password_reset_token',
             'email:email',
-            [
-                'attribute'=>'status',
-                'format'=>'raw',
-                'value'=> function($model){
-                    if ($model->status === 10){
-                        return 'Aktif';
-                    }
-                    else{
-                        return 'Tidak Aktif';
-                    }
-                }
-            ],
             'nama',
             //'created_at',
             //'updated_at',

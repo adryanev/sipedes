@@ -11,6 +11,7 @@ use yii\helpers\ArrayHelper;
  * @property string $id_kecamatan
  * @property string $nama_kecamatan
  * @property string $id_kabupaten
+ * @property string $status
  *
  * @property Desa[] $desas
  * @property Kabupaten $kabupaten
@@ -18,6 +19,8 @@ use yii\helpers\ArrayHelper;
  */
 class Kecamatan extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 'AKTIF';
+    const STATUS_DELETED = 'TIDAK AKTIF';
     /**
      * @inheritdoc
      */
@@ -36,6 +39,9 @@ class Kecamatan extends \yii\db\ActiveRecord
             [['id_kecamatan', 'id_kabupaten'], 'string', 'max' => 15],
             [['nama_kecamatan'], 'string', 'max' => 255],
             [['id_kecamatan'], 'unique'],
+            [['status'], 'safe'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['id_kabupaten'], 'exist', 'skipOnError' => true, 'targetClass' => Kabupaten::className(), 'targetAttribute' => ['id_kabupaten' => 'id_kabupaten']],
         ];
     }
@@ -49,6 +55,7 @@ class Kecamatan extends \yii\db\ActiveRecord
             'id_kecamatan' => 'Id Kecamatan',
             'nama_kecamatan' => 'Nama Kecamatan',
             'id_kabupaten' => 'Id Kabupaten',
+            'status'=>'Status'
         ];
     }
 
@@ -77,7 +84,7 @@ class Kecamatan extends \yii\db\ActiveRecord
     }
 
     public static function getKecamatanAsMap(){
-        $kecamatan = Kecamatan::find()->all();
+        $kecamatan = Kecamatan::find()->where(['status'=>'AKTIF'])->all();
         $kecamatanMap  = ArrayHelper::map($kecamatan,'id_kecamatan','nama_kecamatan');
         return $kecamatanMap;
     }

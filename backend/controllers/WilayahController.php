@@ -31,11 +31,11 @@ class WilayahController extends \yii\web\Controller
     }
     public function actionIndex()
     {
-        $dataProvinsi = Provinsi::find()->limit(10);
-        $dataKabupaten = Kabupaten::find()->limit(10);
-        $dataKecamatan = Kecamatan::find()->limit(10);
-        $dataKelurahan = Kelurahan::find()->limit(10);
-        $dataDesa= Desa::find()->limit(10);
+        $dataProvinsi = Provinsi::find()->where(['status'=>'AKTIF'])->limit(10);
+        $dataKabupaten = Kabupaten::find()->where(['status'=>'AKTIF'])->limit(10);
+        $dataKecamatan = Kecamatan::find()->where(['status'=>'AKTIF'])->limit(10);
+        $dataKelurahan = Kelurahan::find()->where(['status'=>'AKTIF'])->limit(10);
+        $dataDesa= Desa::find()->where(['status'=>'AKTIF'])->limit(10);
 
         $dataProviderProvinsi = new ActiveDataProvider(['query' => $dataProvinsi]);
         $dataProviderKabupaten = new ActiveDataProvider(['query' => $dataKabupaten]);

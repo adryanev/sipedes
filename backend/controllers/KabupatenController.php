@@ -118,7 +118,10 @@ class KabupatenController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model =  $this->findModel($id);
+        $model->status = 'TIDAK AKTIF';
+        $model->save(false);
+        Yii::$app->session->setFlash('success','Berhasil menghapus kabupaten');
 
         return $this->redirect(['index']);
     }

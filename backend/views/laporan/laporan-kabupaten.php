@@ -14,7 +14,6 @@
 $tahunLaporan = Yii::$app->request->get('tahun');
 $jenis = Yii::$app->request->get('jenis');
 
-
 ?>
 
 <div class="row">
@@ -57,7 +56,7 @@ $jenis = Yii::$app->request->get('jenis');
                    <td rowspan="<?= count($kecamatan->desas) ?>"><?=$kecamatan->nama_kecamatan?></td>
                    <td><?= $kecamatan->desas[0]->nama_desa?></td>
                    <td><?= \common\models\PenilaianDesa::find()->where(['id_desa'=>$struktur[0]->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan])->one() === null ? "Belum Dinilai" : \common\models\PenilaianDesa::find()->where(['id_desa'=>$struktur[0]->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan])->one()->getPerkembangan()  ?></td>
-                   <td> <?=  \common\models\PenilaianDesa::find()->where(['id_desa'=>$kecamatan->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan]) ->one() === null? "-" : \common\models\PenilaianDesa::find()->where(['id_desa'=>$kecamatan->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan])->totalNilai()?></td>
+                   <td> <?=  \common\models\PenilaianDesa::find()->where(['id_desa'=>$kecamatan->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan]) ->one() === null? "-" : \common\models\PenilaianDesa::find()->where(['id_desa'=>$kecamatan->desas[0]->id_desa, 'tahun_penilaian'=>$tahunLaporan])->one()->totalNilai()?></td>
                </tr>
                     <?php
                         for ($i = 1; $i < count($kecamatan->desas); $i++){
@@ -103,19 +102,41 @@ $jenis = Yii::$app->request->get('jenis');
                                <td> Tidak ada data</td>
                                
                       
-                             "  ;
+                             "
+                             ;
+
                             }else{
+                                ?>
+                                <td><?= $kecamatan->kelurahans[0]->nama_kelurahan?></td>
+                               <?php try{
+
+                                    if( \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one() === null){
+                                        echo " <td>Belum Dinilai</td>
+                                    <td> - </td>";
+
+                                    }
+                                    else{
+                                        echo " <td>".\common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one()->getPerkembangan()."</td>
+                                <td>".\common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one()->totalNilai()."</td>
+                            
+";
+                                    }
+
+                                }
+                                catch (Exception $e){
+
+                                }
+
+                                ?>
 
 
-                            ?>
-                            <td><?= $kecamatan->kelurahans[0]->nama_kelurahan?></td>
-                            <td><?=  \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one() === null ? "Belum Dinilai" : \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$struktur[0]->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one()->getPerkembangan() ?></td>
-                            <td> <?=  \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan]) ->one() === null? "-" : \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[0]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->totalNilai()?></td>
+
+
                             <?php }?>
                         </tr>
                         <?php
                         for ($i = 1; $i < count($kecamatan->kelurahans); $i++) {
-                            echo "<tr>";
+                echo "<tr>";
                             echo "<td>";
                             echo $kecamatan->kelurahans[$i]->nama_kelurahan;
                             echo "</td>";
@@ -133,9 +154,10 @@ $jenis = Yii::$app->request->get('jenis');
                             if(\common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[$i]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one() === null){
                                 echo "-";
                             }else{
-                                echo  \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[$i]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one()->totalNilai();                            }
+                                echo  \common\models\PenilaianKelurahan::find()->where(['id_kelurahan'=>$kecamatan->kelurahans[$i]->id_kelurahan, 'tahun_penilaian'=>$tahunLaporan])->one()->totalNilai();
                             echo "</td>";
                             echo "</tr>";
+                        }
                         }
 
                         ?>

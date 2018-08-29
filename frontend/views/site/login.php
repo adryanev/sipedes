@@ -7,48 +7,61 @@
 use yii2mod\alert\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-
-$this->title = 'Login | SIPEDES';
-
 $fieldOptions1 = [
-    'options' => ['class' => 'input-group'],
-    'template'=>" <span class=\"input-group-addon\"> <i class=\"material-icons\">email</i></span><div class=\"form-group label-floating\">{label}{input}{hint}{error}</div>",
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "<span class='glyphicon glyphicon-user form-control-feedback'></span>{input}"
 ];
 
-$fieldOptions2 =[
-    'options' => ['class' => 'input-group'],
-    'template'=>" <span class=\"input-group-addon\"> <i class=\"material-icons\">lock</i></span><div class=\"form-group label-floating\">{label}{input}{hint}{error}</div>",
+$fieldOptions2 = [
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "<span class='glyphicon glyphicon-lock form-control-feedback'></span>{input}"
 ];
 ?>
-<div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <div class="card card-login card-hidden">
-                    <div class="card-header text-center" data-background-color="rose">
-                        <h3 class="card-title">Login</h3>
-                        <div class="social-line">
-                            <h5>Untuk Melanjutkan</h5>
-                        </div>
-                    </div>
-                    <p class="category text-center">
-                        Isi sesuai data anda.
-                    </p>
-                    <div class="card-content">
-                        <?php echo Alert::widget(['useSessionFlash'=>true])?>
-                        <?= $form->field($model, 'username',$fieldOptions1)->textInput()->label('Username',['class'=> 'control-label'] ) ?>
 
-                        <?= $form->field($model, 'password',$fieldOptions2)->passwordInput()->label('Password') ?>
 
-                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+<div class="account-pages"></div>
+<div class="clearfix"></div>
+<div class="wrapper-page">
+    <div class="text-center">
+        <a href="<?=Yii::$app->urlManager->getBaseUrl()?>" class="logo"><span>Penilaian<span> DesKel</span></span></a>
+        <h5 class="text-muted m-t-0 font-600">Dinas Pemberdayaan Masyarakat dan Desa Provinsi Riau</h5>
+    </div>
+    <div class="m-t-40 card-box">
+        <div class="panel-body">
+            <h1><?= Html::encode($this->title) ?></h1>
+            <?php echo Alert::widget(['useSessionFlash'=>true])?>
 
-                        <div class="footer text-center">
-                            <?= Html::submitButton('Login', ['class' => 'btn btn-rose btn-wd btn-lg', 'name' => 'login-button']) ?>
-                        </div>
-                    </div>
-                    <?php ActiveForm::end(); ?>
-                </div>
+            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+
+            <?= $form
+                ->field($model, 'username', $fieldOptions1)
+                ->label(false)
+                ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
+
+            <?= $form
+                ->field($model, 'password', $fieldOptions2)
+                ->label(false)
+                ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
+            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+
+            <div class="form-group">
+                <?= Html::submitButton('Login', ['class'=>['btn btn-primary btn-bordred col-xs-12'], 'name' => 'login-button']) ?>
             </div>
+
+            <?php ActiveForm::end(); ?>
+
+
         </div>
     </div>
+    <!-- end card-box-->
+</div>
+<!-- end wrapper page -->
+
+
+
+<script>
+    var resizefunc = [];
+</script>
+<div class="site-login">
+
+</div>

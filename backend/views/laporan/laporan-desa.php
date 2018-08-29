@@ -38,6 +38,7 @@
         <div class="card-box">
             <h4 class="header-title m-t-0 m-b-30">Laporan Penilaian Desa <?= $desa->nama_desa?></h4>
 
+
                     <p>Tahun&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $penilaianDesa->tahun_penilaian?></p>
                     <p>Nama Tim Penilai&emsp;: <?= $penilaianDesa->getPenilai()->one()->nama?></p>
                     <p>Desa&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: <?= $desa->nama_desa ?></p>

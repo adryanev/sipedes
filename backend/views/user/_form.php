@@ -24,7 +24,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'nama')->textInput(['maxlength' => true]) ?>
 
 
-    <?= $form->field($model, 'status')->dropDownList(['10'=>'Aktif','0'=>'Tidak Aktif']) ?>
+
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

@@ -40,7 +40,7 @@ class DesaSearch extends Desa
      */
     public function search($params)
     {
-        $query = Desa::find();
+        $query = Desa::find()->where(['status'=>'AKTIF']);
 
         // add conditions that should always apply here
 

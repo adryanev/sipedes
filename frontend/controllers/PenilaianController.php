@@ -107,6 +107,14 @@ class PenilaianController extends \yii\web\Controller
 
     public function actionPenilaianDesa($idDesa){
         $dataDesa = Desa::findOne($idDesa);
+        if(PenilaianDesa::find()->where(['id_desa'=>$idDesa, 'tahun_penilaian'=>date('Y')])->count() > 0){
+            Yii::$app->session->setFlash('warning','Data penilaian sudah di isi');
+            return $this->redirect(['penilaian/desa']);
+        }
+        if($dataDesa->status === 'TIDAK AKTIF'){
+            Yii::$app->session->setFlash('warning','Desa Tidak ada');
+            return $this->redirect(['penilaian/desa']);
+        }
         $penilaianDesa = new PenilaianDesa();
         $penilaianWilayah = new PenilaianWilayahDesa();
         $penilaianPemerintahan = new PenilaianPemerintahanDesa();
@@ -265,6 +273,10 @@ class PenilaianController extends \yii\web\Controller
     public function actionPenilaianKelurahan($idKelurahan){
 
         $dataKelurahan = Kelurahan::findOne($idKelurahan);
+        if(PenilaianKelurahan::find()->where(['id_kelurahan'=>$idKelurahan, 'tahun_penilaian'=>date('Y')])->count() > 0){
+            Yii::$app->session->setFlash('warning','Data penilaian sudah di isi');
+            return $this->redirect(['penilaian/kelurahan']);
+        }
         $penilaianKelurahan = new PenilaianKelurahan();
         $penilaianWilayah = new PenilaianWilayahKelurahan();
         $penilaianPemerintahan = new PenilaianPemerintahanKelurahan();

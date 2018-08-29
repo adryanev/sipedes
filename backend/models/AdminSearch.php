@@ -41,7 +41,7 @@ class AdminSearch extends Admin
      */
     public function search($params)
     {
-        $query = Admin::find();
+        $query = Admin::find()->where(['status'=>10]);
 
         // add conditions that should always apply here
 

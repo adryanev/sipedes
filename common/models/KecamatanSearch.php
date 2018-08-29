@@ -40,7 +40,7 @@ class KecamatanSearch extends Kecamatan
      */
     public function search($params)
     {
-        $query = Kecamatan::find();
+        $query = Kecamatan::find()->where(['status'=>'AKTIF']);
 
         // add conditions that should always apply here
 

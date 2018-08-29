@@ -62,6 +62,7 @@ use common\models\PenilaianWilayahKelurahan;
 use common\models\Provinsi;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\helpers\HtmlPurifier;
 use yii\helpers\Json;
 use yii\web\NotFoundHttpException;
@@ -124,8 +125,10 @@ class LaporanController extends \yii\web\Controller
     }
     public function actionIndex()
     {
-        $dataProvinsi = Provinsi::getProvinsiAsMap();
-        $dataKabupaten = Kabupaten::getKabupatenAsMap();
+        $provinsi = Provinsi::find()->all();
+        $dataProvinsi = ArrayHelper::map($provinsi,'id_provinsi','nama_provinsi');
+        $kabupaten = Kabupaten::find()->all();
+        $dataKabupaten = ArrayHelper::map($kabupaten,'id_kabupaten','nama_kabupaten');
         return $this->render('index',['provinsi'=>$dataProvinsi,'kabupaten'=>$dataKabupaten]);
     }
 

@@ -79,9 +79,19 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $password = $_POST['User']['password_hash'];
-            $model->tambahAkun($model,$password);
-            Yii::$app->session->setFlash('success','Berhasil membuat Akun');
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->setPassword($password);
+            $model->generateAuthKey();
+            $model->status=10;
+
+            if($model->save()){
+                Yii::$app->session->setFlash('success','Berhasil membuat Akun');
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+            else{
+                Yii::$app->session->setFlash('danger','Akun penilai sudah ada');
+                return $this->redirect(['index']);
+            }
+
         }
 
         return $this->render('create', [
@@ -103,9 +113,15 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $password = $_POST['User']['password_hash'];
             $model->setPassword($password);
-            $model->save();
-            Yii::$app->session->setFlash('success','Berhasil memperbarui penilai');
-            return $this->redirect(['view', 'id' => $model->id]);
+           if($model->save()){
+               Yii::$app->session->setFlash('success','Berhasil memperbarui penilai');
+               return $this->redirect(['view', 'id' => $model->id]);
+           }
+           else{
+               Yii::$app->session->setFlash('danger','Akun tidak berhasil dibuat');
+               return $this->redirect(['index']);
+           }
+
         }
 
         return $this->render('update', [
@@ -122,7 +138,9 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model =  $this->findModel($id);
+        $model->status = 0;
+        $model->save(false);
         Yii::$app->session->setFlash('success','Berhasil menghapus penilai');
         return $this->redirect(['index']);
     }

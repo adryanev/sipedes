@@ -11,12 +11,15 @@ use yii\helpers\ArrayHelper;
  * @property string $id_kabupaten
  * @property string $nama_kabupaten
  * @property string $id_provinsi
+ * @property string $status
  *
  * @property Provinsi $provinsi
  * @property Kecamatan[] $kecamatans
  */
 class Kabupaten extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 'AKTIF';
+    const STATUS_DELETED = 'TIDAK AKTIF';
     /**
      * @inheritdoc
      */
@@ -35,6 +38,9 @@ class Kabupaten extends \yii\db\ActiveRecord
             [['id_kabupaten', 'id_provinsi'], 'string', 'max' => 15],
             [['nama_kabupaten'], 'string', 'max' => 255],
             [['id_kabupaten'], 'unique'],
+            [['status'], 'safe'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['id_provinsi'], 'exist', 'skipOnError' => true, 'targetClass' => Provinsi::className(), 'targetAttribute' => ['id_provinsi' => 'id_provinsi']],
         ];
     }
@@ -48,6 +54,7 @@ class Kabupaten extends \yii\db\ActiveRecord
             'id_kabupaten' => 'Id Kabupaten',
             'nama_kabupaten' => 'Nama Kabupaten',
             'id_provinsi' => 'Id Provinsi',
+            'status'=>'Status'
         ];
     }
 
@@ -69,7 +76,7 @@ class Kabupaten extends \yii\db\ActiveRecord
 
     public static function getKabupatenAsMap(){
 
-        $kabupaten = Kabupaten::find()->all();
+        $kabupaten = Kabupaten::find()->where(['status'=>'AKTIF'])->all();
         $kabupatenMap = ArrayHelper::map($kabupaten,'id_kabupaten','nama_kabupaten');
 
         return $kabupatenMap;

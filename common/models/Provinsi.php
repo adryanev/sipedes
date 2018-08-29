@@ -10,11 +10,14 @@ use yii\helpers\ArrayHelper;
  *
  * @property string $id_provinsi
  * @property string $nama_provinsi
+ * @property string $status
  *
  * @property Kabupaten[] $kabupatens
  */
 class Provinsi extends \yii\db\ActiveRecord
 {
+    const STATUS_ACTIVE = 'AKTIF';
+    const STATUS_DELETED = 'TIDAK AKTIF';
     /**
      * @inheritdoc
      */
@@ -33,6 +36,10 @@ class Provinsi extends \yii\db\ActiveRecord
             [['id_provinsi'], 'string', 'max' => 15],
             [['nama_provinsi'], 'string', 'max' => 255],
             [['id_provinsi'], 'unique'],
+            [['status'], 'safe'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
         ];
     }
 
@@ -44,6 +51,7 @@ class Provinsi extends \yii\db\ActiveRecord
         return [
             'id_provinsi' => 'Id Provinsi',
             'nama_provinsi' => 'Nama Provinsi',
+            'status'=>'Status'
         ];
     }
 
@@ -57,7 +65,7 @@ class Provinsi extends \yii\db\ActiveRecord
 
     public static function getProvinsiAsMap(){
 
-        $provinsi = Provinsi::find()->all();
+        $provinsi = Provinsi::find()->where(['status'=>'AKTIF'])->all();
         $provinsiMap = ArrayHelper::map($provinsi,'id_provinsi','nama_provinsi');
         return $provinsiMap;
     }
